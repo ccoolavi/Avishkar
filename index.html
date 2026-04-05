@@ -1,583 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avishkar Solat - Business Operations Systems Expert</title>
-    <meta name="description" content="Avishkar Solat - Business Operations Systems Expert. Transforming business operations with proven automation and process optimization expertise. Available immediately.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #ffffff;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header */
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.1);
-        }
-        
-        .header-content {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .profile-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            margin: 0 auto 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;  /* Reduced from 48px */
-            font-weight: 600;
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            text-align: center;  /* Added this */
-            line-height: 1.2;    /* Added this for better line spacing */
-            padding: 10px;       /* Added padding so text doesn't touch edges */
-            word-break: break-word; /* Added this to handle word breaking */
-        }
-        
-        .main-title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-        
-        .subtitle {
-            font-size: 1.5rem;
-            font-weight: 400;
-            margin-bottom: 30px;
-            opacity: 0.95;
-        }
-        
-        .header-stats {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin: 40px 0;
-            flex-wrap: wrap;
-        }
-        
-        .stat {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-            min-width: 120px;
-        }
-        
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            display: block;
-        }
-        
-        .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-        
-        .cta-buttons {
-            margin-top: 40px;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            margin: 0 10px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            cursor: pointer;
-            background: none;
-        }
-        
-        .btn-primary {
-            background: white;
-            color: #667eea;
-            border-color: white;
-        }
-        
-        .btn-primary:hover {
-            background: transparent;
-            color: white;
-            border-color: white;
-        }
-        
-        .btn-outline {
-            color: white;
-            border-color: white;
-        }
-        
-        .btn-outline:hover {
-            background: white;
-            color: #667eea;
-        }
-        
-        /* Sections */
-        .section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 60px;
-            color: #2d3748;
-        }
-        
-        /* About Section */
-        .about {
-            background: #f7fafc;
-        }
-        
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-        
-        .about-text {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: #4a5568;
-        }
-        
-        .about-text p {
-            margin-bottom: 20px;
-        }
-        
-        .highlight-box {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px;
-            border-radius: 15px;
-            text-align: center;
-        }
-        
-        .highlight-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-        
-        /* Experience Section */
-        .experience-grid {
-            display: grid;
-            gap: 40px;
-        }
-        
-        .job {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border-left: 5px solid #667eea;
-        }
-        
-        .job-header {
-            margin-bottom: 20px;
-        }
-        
-        .job-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 5px;
-        }
-        
-        .job-company {
-            font-size: 1.1rem;
-            color: #667eea;
-            font-weight: 500;
-        }
-        
-        .job-duration {
-            color: #718096;
-            font-size: 0.95rem;
-            margin-top: 5px;
-        }
-        
-        .job-achievements {
-            list-style: none;
-        }
-        
-        .job-achievements li {
-            margin-bottom: 10px;
-            padding-left: 20px;
-            position: relative;
-        }
-        
-        .job-achievements li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: #667eea;
-            font-weight: bold;
-        }
-        
-        /* Skills Section */
-        .skills {
-            background: #f7fafc;
-        }
-        
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        
-        .skill-item {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease;
-        }
-        
-        .skill-item:hover {
-            transform: translateY(-5px);
-        }
-        
-        .skill-name {
-            font-weight: 600;
-            color: #2d3748;
-            font-size: 1.1rem;
-        }
-        
-        /* Contact Section */
-        .contact {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-        
-        .contact-content {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .contact-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .contact-label {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            margin-bottom: 10px;
-        }
-        
-        .contact-value {
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-        
-        .contact-value a {
-            color: white;
-            text-decoration: none;
-        }
-        
-        .contact-value a:hover {
-            text-decoration: underline;
-        }
-        
-        .availability-banner {
-            background: #48bb78;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .main-title {
-                font-size: 2.5rem;
-            }
-            
-            .subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .header-stats {
-                gap: 20px;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
-            .btn {
-                display: block;
-                margin: 10px auto;
-                text-align: center;
-            }
-            
-            .section {
-                padding: 60px 0;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avishkar Solat | Product Operations, AI Systems & Analytics</title>
+  <meta name="description" content="Avishkar Solat is a Product Operations, AI Systems, and Analytics professional building scalable business systems, global analytics workflows, and high-impact automation." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <!-- Availability Banner -->
-    <div class="availability-banner">
-        ✅ Available for Immediate Start - Ready to Transform Your Operations
-    </div>
-
-    <!-- Header Section -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="profile-image">
-                    AS
-                </div>
-                <h1 class="main-title">Avishkar Solat</h1>
-                <p class="subtitle">Business Operations Systems Expert</p>
-                
-                <div class="header-stats">
-                    <div class="stat">
-                        <span class="stat-number">70%</span>
-                        <span class="stat-label">Process Automation</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">2.5</span>
-                        <span class="stat-label">Years Int'l Experience</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">100%</span>
-                        <span class="stat-label">Available Now</span>
-                    </div>
-                </div>
-                
-                <div class="cta-buttons">
-                    <button class="btn btn-primary" onclick="downloadResume()">Download Resume</button>
-                    <button class="btn btn-outline" onclick="scrollToContact()">Contact Me</button>
-                </div>
-            </div>
-        </div>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="#home">AS</a>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#impact">Impact</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </header>
 
-    <!-- About Section -->
-    <section class="section about" id="about">
-        <div class="container">
-            <h2 class="section-title">About Avishkar Solat</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Business Operations Manager specializing in workflow design, process automation, and operational transformation. I transform struggling business operations into sustainable, automated systems.</p>
-                    
-                    <p>My expertise lies in designing end-to-end business operational frameworks that eliminate inefficiencies and create scalable growth platforms. I've successfully architected complete business transformations, reducing manual processes by up to 70% while enabling sustainable operations.</p>
-                    
-                    <p>With international experience at NielsenIQ managing Fortune 500 clients and proven success in business transformation, I bring both strategic thinking and hands-on implementation expertise.</p>
-                </div>
-                <div class="highlight-box">
-                    <h3 class="highlight-title">Ready for Immediate Impact</h3>
-                    <p>Available to start immediately with no notice period. Ready to bring operational transformation expertise to your growing organization.</p>
-                </div>
-            </div>
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-copy">
+          <p class="eyebrow">Global Remote • Product Operations • AI Systems • Analytics</p>
+          <h1>I turn messy workflows into scalable operating systems.</h1>
+          <p class="hero-text">
+            I'm <span>Avishkar Solat</span> — a product operations and analytics leader with 4+ years of cross-functional experience spanning Fortune 500 delivery, business operations transformation, and AI-powered workflow automation.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="mailto:avisolat18@gmail.com">Hire Me</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/ccoolavi" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+          <ul class="hero-points">
+            <li>Trusted across North America, Europe, and Asia-Pacific.</li>
+            <li>Built systems delivering 100% on-time execution and 95+ CSAT.</li>
+            <li>Reduced manual processing time by 70% through automation.</li>
+          </ul>
         </div>
-    </section>
 
-    <!-- Experience Section -->
-    <section class="section experience" id="experience">
-        <div class="container">
-            <h2 class="section-title">Professional Experience</h2>
-            <div class="experience-grid">
-                <div class="job">
-                    <div class="job-header">
-                        <h3 class="job-title">Business Operations Manager & Process Designer</h3>
-                        <p class="job-company">Sujata Fashions</p>
-                        <p class="job-duration">Aug 2024 - Present</p>
-                    </div>
-                    <ul class="job-achievements">
-                        <li>Architected complete business operations transformation from ground up</li>
-                        <li>Implemented automated workflows reducing manual processes by 70%</li>
-                        <li>Built scalable financial management and inventory tracking systems</li>
-                        <li>Created operational frameworks enabling sustainable business growth</li>
-                        <li>Managed cross-functional teams and strategic planning initiatives</li>
-                    </ul>
-                </div>
-                
-                <div class="job">
-                    <div class="job-header">
-                        <h3 class="job-title">International Customer Success Analytics</h3>
-                        <p class="job-company">NielsenIQ</p>
-                        <p class="job-duration">Mar 2022 - Aug 2024</p>
-                    </div>
-                    <ul class="job-achievements">
-                        <li>Managed complex operational workflows for Fortune 500 FMCG clients</li>
-                        <li>Led cross-functional project coordination across international markets</li>
-                        <li>Coordinated client engagement programs and training operations</li>
-                        <li>Handled international stakeholder management and team coordination</li>
-                        <li>Maintained 95+ client satisfaction scores across global operations</li>
-                    </ul>
-                </div>
-            </div>
+        <aside class="hero-card">
+          <div class="avatar">AS</div>
+          <p class="card-label">Current focus</p>
+          <h2>Product Ops, Analytics PM, AI Product, Technical Operations</h2>
+          <p class="card-text">Available immediately, timezone-flexible from India, and optimized for remote teams that need execution speed, clarity, and systems thinking.</p>
+          <div class="micro-stats">
+            <div><strong>4+</strong><span>Years</span></div>
+            <div><strong>3</strong><span>Global regions</span></div>
+            <div><strong>$MM</strong><span>Annual contract exposure</span></div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="metrics" id="impact">
+        <article class="metric-card">
+          <span class="metric-value">100%</span>
+          <h3>On-time delivery</h3>
+          <p>Owned multi-market analytics delivery with zero misses across international client workflows.</p>
+        </article>
+        <article class="metric-card">
+          <span class="metric-value">95+</span>
+          <h3>Client satisfaction</h3>
+          <p>Maintained strong CSAT while balancing quality control, reporting, and stakeholder alignment.</p>
+        </article>
+        <article class="metric-card">
+          <span class="metric-value">70%</span>
+          <h3>Less manual processing</h3>
+          <p>Automated billing and inventory operations with Python and JavaScript for faster execution.</p>
+        </article>
+        <article class="metric-card">
+          <span class="metric-value">0</span>
+          <h3>External dependency</h3>
+          <p>Operated critical business functions end-to-end with full ownership across execution layers.</p>
+        </article>
+      </section>
+
+      <section class="about section" id="about">
+        <div class="section-heading">
+          <p class="eyebrow">About</p>
+          <h2>Built for high-ownership roles.</h2>
         </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="section skills" id="skills">
-        <div class="container">
-            <h2 class="section-title">Core Competencies</h2>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <h3 class="skill-name">Business Operations</h3>
-                </div>
-                <div class="skill-item">
-                    <h3 class="skill-name">Process Improvement</h3>
-                </div>
-                <div class="skill-item">
-                    <h3 class="skill-name">Workflow Automation</h3>
-                </div>
-                <div class="skill-item">
-                    <h3 class="skill-name">Operations Management</h3>
-                </div>
-                <div class="skill-item">
-                    <h3 class="skill-name">Strategic Planning</h3>
-                </div>
-                <div class="skill-item">
-                    <h3 class="skill-name">Team Leadership</h3>
-                </div>
-            </div>
+        <div class="about-grid">
+          <div class="panel">
+            <p>
+              I bridge data, product, and execution. My work combines analytics delivery, reporting systems, process design, AI tooling, and operational transformation to create workflows that are easier to run, easier to scale, and harder to break.
+            </p>
+          </div>
+          <div class="panel">
+            <ul class="bullet-list">
+              <li>Fortune 500 client delivery background through NielsenIQ.</li>
+              <li>Hands-on builder across Python, JavaScript, SQL, Power BI, GenAI, MCP, Ollama, and LM Studio.</li>
+              <li>Experience across business ops, retail analytics, documentation systems, vendor execution, and automation.</li>
+            </ul>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- Contact Section -->
-    <section class="section contact" id="contact">
-        <div class="container">
-            <div class="contact-content">
-                <h2 class="section-title">Get In Touch</h2>
-                <p>Ready to discuss how I can transform your business operations? Let's connect and explore opportunities.</p>
-                
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-label">Email</div>
-                        <div class="contact-value">
-                            <a href="mailto:avishkar.solat@myself.com">avishkar.solat@myself.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-label">Phone</div>
-                        <div class="contact-value">
-                            <a href="tel:+917558555950">+91 7558555950</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-label">LinkedIn</div>
-                        <div class="contact-value">
-                            <a href="https://linkedin.com/in/ccoolavi" target="_blank">linkedin.com/in/ccoolavi</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-label">Location</div>
-                        <div class="contact-value">Pune, Maharashtra, India</div>
-                    </div>
-                </div>
-            </div>
+      <section class="experience section" id="experience">
+        <div class="section-heading">
+          <p class="eyebrow">Experience</p>
+          <h2>From analytics delivery to business transformation.</h2>
         </div>
-    </section>
 
-    <script>
-        function downloadResume() {
-            const resumeUrl = './resume.pdf';
-            
-            fetch(resumeUrl)
-                .then(response => {
-                    if (response.ok) {
-                        const link = document.createElement('a');
-                        link.href = resumeUrl;
-                        link.download = 'Avishkar_Solat_Resume.pdf';
-                        document.body.appendChild(link);
-                        link.click();
-                        document.body.removeChild(link);
-                    } else {
-                        alert('Resume file not found. Please contact Avishkar Solat directly at avishkar.solat@myself.com for his resume.');
-                    }
-                })
-                .catch(() => {
-                    alert('Resume file not found. Please contact Avishkar Solat directly at avishkar.solat@myself.com for his resume.');
-                });
-        }
-        
-        function scrollToContact() {
-            document.getElementById('contact').scrollIntoView({ 
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-        
-        // Smooth scrolling for internal links
-        document.addEventListener('DOMContentLoaded', function() {
-            const links = document.querySelectorAll('a[href^="#"]');
-            links.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetSection = document.querySelector(targetId);
-                    if (targetSection) {
-                        targetSection.scrollIntoView({ 
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-        });
-    </script>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-meta">Aug 2024 — Present</div>
+            <div class="timeline-content">
+              <h3>Business Operations Manager & AI Systems Lead <span>@ Sujata Fashions</span></h3>
+              <p>Led end-to-end transformation across production, inventory, billing, vendor coordination, strategic planning, AI tooling, website deployment, and process design.</p>
+              <ul class="bullet-list compact">
+                <li>Cut manual processing time by 70% with automation.</li>
+                <li>Built billing, inventory, and operational systems with Python and JavaScript.</li>
+                <li>Ran AI-supported workflows using Ollama, LM Studio, MCP, LoRA, and SafeTensors.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-meta">Feb 2022 — Aug 2024</div>
+            <div class="timeline-content">
+              <h3>International Customer Success Analytics <span>@ NielsenIQ</span></h3>
+              <p>Owned retail analytics delivery for global FMCG accounts while translating complex datasets into executive-ready reporting and dashboards.</p>
+              <ul class="bullet-list compact">
+                <li>Supported stakeholders across North America, Europe, and Asia-Pacific.</li>
+                <li>Maintained 100% on-time delivery and 95+ CSAT.</li>
+                <li>Built Power BI dashboards and strengthened documentation and governance.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-meta">2021</div>
+            <div class="timeline-content">
+              <h3>Engineering Internships <span>@ Develop Train Maintain LLP & Decibels Lab</span></h3>
+              <p>Built technical depth early through mechanical design, simulation, model-based design, prototyping, and applied problem-solving.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="skills section" id="skills">
+        <div class="section-heading">
+          <p class="eyebrow">Capabilities</p>
+          <h2>Execution stack.</h2>
+        </div>
+
+        <div class="chip-groups">
+          <div class="panel">
+            <h3>Operations</h3>
+            <div class="chips">
+              <span>Product Operations</span>
+              <span>Business Operations</span>
+              <span>Stakeholder Management</span>
+              <span>Process Automation</span>
+              <span>Documentation</span>
+              <span>Revenue Operations</span>
+            </div>
+          </div>
+          <div class="panel">
+            <h3>Data & Analytics</h3>
+            <div class="chips">
+              <span>Power BI</span>
+              <span>SQL</span>
+              <span>Excel</span>
+              <span>Google Analytics</span>
+              <span>Retail Analytics</span>
+              <span>Reporting Systems</span>
+            </div>
+          </div>
+          <div class="panel">
+            <h3>AI & Engineering</h3>
+            <div class="chips">
+              <span>Python</span>
+              <span>JavaScript</span>
+              <span>Generative AI</span>
+              <span>RAG</span>
+              <span>MCP</span>
+              <span>Ollama</span>
+              <span>LM Studio</span>
+              <span>APIs</span>
+              <span>Vector Databases</span>
+              <span>NLP</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="proof section">
+        <div class="section-heading">
+          <p class="eyebrow">Why teams hire me</p>
+          <h2>I bring operator discipline with builder speed.</h2>
+        </div>
+        <div class="proof-grid">
+          <div class="panel accent-panel">
+            <h3>What I do best</h3>
+            <p>Turn ambiguous, multi-team work into repeatable systems with ownership, speed, and measurable business outcomes.</p>
+          </div>
+          <div class="panel">
+            <h3>Best-fit roles</h3>
+            <p>Product Operations, Analytics PM, AI Product, Technical Product, Operations Management, Business Systems, or high-ownership chief-of-staff style roles.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact section" id="contact">
+        <div class="contact-card">
+          <p class="eyebrow">Contact</p>
+          <h2>Let's build systems that scale.</h2>
+          <p>Email: <a href="mailto:avisolat18@gmail.com">avisolat18@gmail.com</a></p>
+          <p>LinkedIn: <a href="https://www.linkedin.com/in/ccoolavi" target="_blank" rel="noreferrer">linkedin.com/in/ccoolavi</a></p>
+          <p>Location: Pune, Maharashtra, India</p>
+        </div>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
