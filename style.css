@@ -577,6 +577,21 @@ section {
 
 /* Responsive */
 @media (max-width: 968px) {
+    .nav-container {
+        padding: 0.75rem 1rem;
+    }
+    .nav-links {
+        gap: 1rem;
+    }
+    .nav-links a:not(.nav-cta) {
+        display: none; /* Hide standard nav text links on smaller screens to prevent crowding */
+    }
+    .hero {
+        padding: 8rem 0 4rem 0;
+    }
+    .hero-title {
+        font-size: 2.5rem;
+    }
     .hero .container {
         grid-template-columns: 1fr;
         text-align: center;
@@ -589,5 +604,17 @@ section {
     }
     .hero-visual {
         display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-links {
+        gap: 0.5rem;
+    }
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    .container {
+        padding: 0 1rem;
     }
 }
