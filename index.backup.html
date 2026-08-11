@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avishkar Solat — Interdisciplinary AI Systems Portfolio</title>
+  <meta name="description" content="Avishkar Solat — interdisciplinary AI systems, analytics, and engineering portfolio." />
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&f[]=zodiak@400,700&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --text-3xl: clamp(2.5rem, 1rem + 4vw, 5rem);
+      --space-1: .25rem; --space-2: .5rem; --space-3: .75rem; --space-4: 1rem; --space-5: 1.25rem;
+      --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem; --space-16: 4rem; --space-20: 5rem;
+      --color-bg: #f7f6f2;
+      --color-surface: #fbfaf7;
+      --color-surface-2: #f1eee8;
+      --color-surface-offset: #e8e3db;
+      --color-border: #d4d1ca;
+      --color-text: #26231d;
+      --color-text-muted: #65615a;
+      --color-text-faint: #948f86;
+      --color-text-inverse: #f9f8f4;
+      --color-primary: #0d6c72;
+      --color-primary-hover: #0a5257;
+      --color-secondary: #8a5b00;
+      --color-success: #437a22;
+      --shadow-sm: 0 1px 2px rgba(28,24,18,.06);
+      --shadow-md: 0 12px 32px rgba(28,24,18,.08);
+      --radius-sm: .5rem; --radius-md: .875rem; --radius-lg: 1.25rem; --radius-xl: 1.75rem; --radius-full: 999px;
+      --font-body: 'Satoshi', Inter, system-ui, sans-serif;
+      --font-display: 'Zodiak', Georgia, serif;
+      --content: min(1120px, calc(100vw - 2rem));
+      --grid-line: rgba(38,35,29,.08);
+    }
+    [data-theme="dark"] {
+      --color-bg: #161513;
+      --color-surface: #1c1b19;
+      --color-surface-2: #23211f;
+      --color-surface-offset: #2b2824;
+      --color-border: #3a3732;
+      --color-text: #ebe8e1;
+      --color-text-muted: #b4aea5;
+      --color-text-faint: #807a73;
+      --color-text-inverse: #181715;
+      --color-primary: #5fa4ad;
+      --color-primary-hover: #82b7bf;
+      --color-secondary: #ebb343;
+      --color-success: #8cc767;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,.2);
+      --shadow-md: 0 18px 48px rgba(0,0,0,.3);
+      --grid-line: rgba(235,232,225,.08);
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:var(--font-body);font-size:var(--text-base);line-height:1.6;background:
+      radial-gradient(circle at top left, rgba(13,108,114,.08), transparent 30%),
+      radial-gradient(circle at 90% 10%, rgba(138,91,0,.08), transparent 24%),
+      linear-gradient(to bottom, transparent, transparent),
+      var(--color-bg);color:var(--color-text)}
+    img,svg{display:block;max-width:100%}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .skip-link{position:absolute;left:-999px;top:auto}.skip-link:focus{left:1rem;top:1rem;background:var(--color-primary);color:var(--color-text-inverse);padding:.75rem 1rem;border-radius:var(--radius-full);z-index:1000}
+    .shell{width:var(--content);margin:0 auto}
+    .grid-bg{position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(to right,var(--grid-line) 1px,transparent 1px),linear-gradient(to bottom,var(--grid-line) 1px,transparent 1px);background-size:40px 40px;mask-image:radial-gradient(circle at center, black 30%, transparent 82%);opacity:.5}
+    header{position:sticky;top:0;z-index:20;backdrop-filter:blur(12px);background:color-mix(in srgb, var(--color-bg) 84%, transparent);border-bottom:1px solid color-mix(in srgb, var(--color-text) 10%, transparent)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);padding:var(--space-4) 0}
+    .brand{display:flex;align-items:center;gap:.875rem;font-weight:700;letter-spacing:.01em}
+    .logo{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--color-primary),color-mix(in srgb,var(--color-primary) 50%, var(--color-secondary)));display:grid;place-items:center;box-shadow:var(--shadow-sm)}
+    .logo svg{width:24px;height:24px;color:#fff}
+    .nav-links{display:flex;gap:var(--space-4);align-items:center;flex-wrap:wrap}
+    .nav-links a{font-size:var(--text-sm);color:var(--color-text-muted)}
+    .nav-links a:hover{color:var(--color-text)}
+    .theme-btn,.btn{border:1px solid color-mix(in srgb,var(--color-text) 12%, transparent);background:var(--color-surface);color:var(--color-text);border-radius:var(--radius-full);padding:.8rem 1rem;min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:.6rem;transition:.2s ease}
+    .theme-btn:hover,.btn:hover{transform:translateY(-1px);box-shadow:var(--shadow-sm)}
+    .btn.primary{background:var(--color-primary);color:var(--color-text-inverse);border-color:transparent}
+    .btn.primary:hover{background:var(--color-primary-hover)}
+    .btn.ghost{background:transparent}
+    main{padding:var(--space-12) 0 var(--space-20)}
+    section{padding:clamp(var(--space-8),7vw,var(--space-16)) 0}
+    .eyebrow{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.18em;color:var(--color-primary);font-weight:700}
+    .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:var(--space-8);align-items:end;min-height:calc(100dvh - 90px)}
+    .hero-card,.panel,.timeline-item,.project-card,.quote-card{background:color-mix(in srgb,var(--color-surface) 88%, transparent);border:1px solid color-mix(in srgb,var(--color-text) 10%, transparent);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm)}
+    .hero-card{padding:clamp(var(--space-6),4vw,var(--space-10));position:relative;overflow:hidden}
+    .hero-card::after{content:"";position:absolute;inset:auto -10% -18% auto;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle, color-mix(in srgb,var(--color-primary) 28%, transparent), transparent 65%);filter:blur(4px)}
+    h1{font-family:var(--font-display);font-size:clamp(3rem,6vw,6.4rem);line-height:.96;letter-spacing:-.04em;max-width:10ch;margin:.35rem 0 1rem}
+    .hero p{font-size:var(--text-lg);color:var(--color-text-muted);max-width:58ch}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-6)}
+    .hero-meta{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-4);margin-top:var(--space-8)}
+    .metric{padding:var(--space-4);background:var(--color-surface-2);border-radius:var(--radius-lg)}
+    .metric strong{display:block;font-size:var(--text-xl);line-height:1.1}
+    .hero-side{display:grid;gap:var(--space-4)}
+    .panel{padding:var(--space-6)}
+    .panel h2,.section-title{font-size:var(--text-xl);line-height:1.05;letter-spacing:-.03em;margin:0 0 .75rem}
+    .lede{color:var(--color-text-muted);max-width:65ch}
+    .chip-row{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:var(--space-4)}
+    .chip{padding:.6rem .85rem;border-radius:var(--radius-full);background:var(--color-surface-2);border:1px solid color-mix(in srgb,var(--color-text) 8%, transparent);font-size:var(--text-sm);color:var(--color-text-muted)}
+    .split{display:grid;grid-template-columns:.9fr 1.1fr;gap:var(--space-8);align-items:start}
+    .list{display:grid;gap:var(--space-3);padding:0;margin:0;list-style:none}
+    .list li{padding-left:1.1rem;position:relative;color:var(--color-text-muted)}
+    .list li::before{content:"";position:absolute;left:0;top:.72em;width:.45rem;height:.45rem;border-radius:50%;background:var(--color-primary)}
+    .timeline{display:grid;gap:var(--space-4);margin-top:var(--space-6)}
+    .timeline-item{padding:var(--space-5)}
+    .time{display:flex;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap;margin-bottom:.5rem}
+    .role{font-weight:800;font-size:var(--text-lg)}
+    .where{color:var(--color-primary);font-weight:700}
+    .muted{color:var(--color-text-muted)}
+    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4);margin-top:var(--space-6)}
+    .project-card{padding:var(--space-5);display:flex;flex-direction:column;gap:var(--space-3);min-height:100%}
+    .project-tag{font-size:var(--text-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--color-secondary);font-weight:800}
+    .project-card h3{font-size:var(--text-lg);line-height:1.15}
+    .project-card p{color:var(--color-text-muted)}
+    .project-card ul{padding-left:1.1rem;margin:0;color:var(--color-text-muted)}
+    .quote-card{padding:var(--space-8);display:grid;gap:var(--space-4);background:linear-gradient(145deg,color-mix(in srgb,var(--color-surface) 90%, transparent),color-mix(in srgb,var(--color-primary) 8%, var(--color-surface)))}
+    blockquote{font-family:var(--font-display);font-size:clamp(1.6rem,2.6vw,2.6rem);line-height:1.12;letter-spacing:-.03em}
+    .two-col{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-4)}
+    footer{padding:var(--space-12) 0 var(--space-16);border-top:1px solid color-mix(in srgb,var(--color-text) 10%, transparent)}
+    .footer-grid{display:grid;grid-template-columns:1fr auto;gap:var(--space-4);align-items:center}
+    .kicker{color:var(--color-text-faint);font-size:var(--text-sm)}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s ease}
+    .reveal.visible{opacity:1;transform:none}
+    @media (max-width: 980px){
+      .hero,.split,.projects,.two-col,.footer-grid{grid-template-columns:1fr}
+      h1{max-width:12ch}
+      .hero{min-height:auto}
+      .nav{align-items:flex-start;flex-direction:column}
+      .hero-meta{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 640px){
+      main{padding-top:var(--space-8)}
+      .hero-meta{grid-template-columns:1fr}
+      .nav-links{gap:var(--space-3)}
+      .panel,.hero-card,.quote-card,.project-card,.timeline-item{padding:var(--space-4)}
+      h1{font-size:clamp(2.6rem,16vw,4rem)}
+      .hero p{font-size:var(--text-base)}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <header>
+    <div class="shell nav">
+      <a class="brand" href="#top" aria-label="Avishkar Solat home">
+        <span class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 18 12 4l8 14"/>
+            <path d="M8.2 13.2h7.6"/>
+            <path d="M10.5 18h3"/>
+          </svg>
+        </span>
+        <span>Avishkar Solat</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#story">Story</a>
+        <a href="#work">Work</a>
+        <a href="#projects">Projects</a>
+        <a href="#fit">Why me</a>
+        <a href="#contact">Contact</a>
+        <button class="theme-btn" type="button" data-theme-toggle aria-label="Switch theme">◐</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="shell">
+    <section class="hero" id="top">
+      <article class="hero-card reveal">
+        <div class="eyebrow">Interdisciplinary AI systems · Analytics · Engineering</div>
+        <h1>Building tools that help humans think clearer and move faster.</h1>
+        <p>I bring together analytics, workflow automation, engineering rigor, and hands-on AI systems work to design practical, high-leverage solutions in messy real-world environments.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#work">Explore experience</a>
+          <a class="btn ghost" href="mailto:avishkar.solat@myself.com">Email Avishkar</a>
+        </div>
+        <div class="hero-meta" aria-label="Highlights">
+          <div class="metric"><span class="kicker">Experience</span><strong>4+ years</strong><span class="muted">Operations, analytics, systems, execution.</span></div>
+          <div class="metric"><span class="kicker">Current edge</span><strong>AI workflows</strong><span class="muted">Local models, automation, retrieval-minded thinking.</span></div>
+          <div class="metric"><span class="kicker">Mindset</span><strong>Builder + analyst</strong><span class="muted">Hands-on, cross-functional, ambiguity-friendly.</span></div>
+          <div class="metric"><span class="kicker">Foundation</span><strong>Mechanical engineering</strong><span class="muted">Model-based reasoning, design, optimization.</span></div>
+        </div>
+      </article>
+
+<div class="hero-slider reveal">
+    <style>
+        /* Styles for the sliding tiles gallery */
+        .hero-slider {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 900px; /* Adjust as necessary for your design */
+            height: auto; /* Or a fixed height if preferred */
+            margin: 2em auto;
+        }
+
+        .slide {
+            display: none; /* Hide all slides by default */
+            padding: 20px;
+            text-align: center;
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        }
+
+        .slide.active {
+            display: block; /* Show the active slide */
+        }
+
+        .slide h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+        }
+
+        .slide p {
+            font-size: 1.2em;
+            color: var(--color-text-muted); /* Using existing variable */
+        }
+    </style>
+
+    <!-- Slide 1 -->
+    <div class="slide slide-1">
+        <h1>Problems don't respect boundaries.</h1>
+        <p>Neither do I. From cement emissions to biotech ventures to AI systems — I follow the problem wherever it leads.</p>
+    </div>
+    <!-- Slide 2 -->
+    <div class="slide slide-2">
+        <h1>I build at the intersection of ideas most people keep separate.</h1>
+        <p>Engineering. Data. AI. Climate. Biology. Not because I dabble — because the most interesting problems live where disciplines collide.</p>
+    </div>
+    <!-- Slide 3 -->
+    <div class="slide slide-3">
+        <h1>Mechanical engineer. Analyst. AI builder. Startup thinker.</h1>
+        <p>Not a single lane. Every project here started with a question I couldn't stop thinking about.</p>
+    </div>
+    <!-- Slide 4 -->
+    <div class="slide slide-4">
+        <h1>I start with the question, not the tool.</h1>
+        <p>Whether it's global CO₂ data, AI safety, human photosynthesis, or aerospace materials — the pattern is the same: find the real problem, build something that proves the thinking.</p>
+    </div>
+    <!-- Slide 5 -->
+    <div class="slide slide-5">
+        <h1>Work that spans domains. Thinking that connects them.</h1>
+        <p>Biotech. Aerospace. Cybersecurity. Climate. AI systems. Each project is a different field — the curiosity behind each one is the same.</p>
+    </div>
+    <!-- Slide 6 -->
+    <div class="slide slide-6">
+        <h1>I make things because I can't stop asking why they don't exist yet.</h1>
+        <p>That question has taken me from aerospace polymers to human photosynthesis to AI threat models. Here's what came out of it.</p>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('.slide');
+    let currentSlideIndex = 0;
+    // Set interval to 5 seconds (5000ms)
+    const slideInterval = 5000;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            if (i === index) {
+                slide.classList.add('active');
+            } else {
+                slide.classList.remove('active');
+            }
+        });
+    }
+
+    // Initialize the first slide
+    showSlide(currentSlideIndex);
+
+    // Set up auto-cycling
+    setInterval(() => {
+        currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+        showSlide(currentSlideIndex);
+    }, slideInterval);
+});
+</script>
+    </section>
+
+    <section id="story" class="split">
+      <div class="reveal">
+        <div class="eyebrow">Story</div>
+        <h2 class="section-title">From engineering systems to information systems.</h2>
+        <p class="lede">My path has moved from mechanical modeling and design to global analytics delivery, business systems transformation, and AI-enabled workflows. That mix gives me a practical lens on how people search, decide, coordinate, and act.</p>
+      </div>
+      <div class="panel reveal">
+        <ul class="list">
+          <li>Started with engineering thinking: modeling, simulation, design validation, and optimization.</li>
+          <li>Learned business reality through analytics delivery, stakeholder trust, and execution under pressure.</li>
+          <li>Expanded into AI systems through local tooling, workflow automation, and hands-on experimentation.</li>
+          <li>Now focused on building intelligent systems that reduce friction between questions and action.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="reveal">
+        <div class="eyebrow">Experience</div>
+        <h2 class="section-title">Work shaped by systems, clarity, and ownership.</h2>
+      </div>
+      <div class="timeline">
+        <article class="timeline-item reveal">
+          <div class="time"><div><div class="role">Business Operations Manager &amp; AI Systems Lead</div><div class="where">Sujata Fashions</div></div><div class="muted">Aug 2024 – Present · Pune</div></div>
+          <ul class="list">
+            <li>Led end-to-end transformation across production, inventory, billing, vendor coordination, and planning.</li>
+            <li>Built automated billing and inventory workflows that reduced manual processing time by 70%.</li>
+            <li>Set up local AI tools and workflow automation systems to improve execution speed and testing cycles.</li>
+            <li>Owned systems, website, execution flow, and day-to-day problem-solving without relying on a large team.</li>
+          </ul>
+        </article>
+        <article class="timeline-item reveal">
+          <div class="time"><div><div class="role">International Customer Success Analytics</div><div class="where">NielsenIQ</div></div><div class="muted">Feb 2022 – Aug 2024 · Pune</div></div>
+          <ul class="list">
+            <li>Owned multi-market retail analytics delivery across North America, Europe, and Asia-Pacific.</li>
+            <li>Built executive-facing Power BI dashboards that translated complex datasets into decision-ready insight.</li>
+            <li>Improved delivery workflows by spotting bottlenecks and working with engineering teams to reduce overhead.</li>
+            <li>Maintained 100% on-time delivery and 95+ CSAT on high-value international accounts.</li>
+          </ul>
+        </article>
+        <article class="timeline-item reveal">
+          <div class="time"><div><div class="role">Engineering Internships</div><div class="where">Develop Train Maintain LLP · Decibels Lab</div></div><div class="muted">2021 · Pune</div></div>
+          <ul class="list">
+            <li>Worked on engineering R&amp;D, CAD-based design, and model-based system development.</li>
+            <li>Built and validated mathematical models in MATLAB/Simulink for mechanical systems.</li>
+            <li>Contributed to documentation, reporting, and design refinement across multidisciplinary projects.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="reveal">
+        <div class="eyebrow">Selected projects</div>
+        <h2 class="section-title">Signals of curiosity, rigor, and invention.</h2>
+      </div>
+      <div class="projects">
+        <article class="project-card reveal">
+          <span class="project-tag">Systems</span>
+          <h3>Workflow automation and local AI setup.</h3>
+          <p>Configured practical AI-assisted workflows for faster execution, testing, and operational turnaround in a live business context.</p>
+          <ul>
+            <li>Local model experimentation.</li>
+            <li>Execution-oriented tooling.</li>
+            <li>Human-in-the-loop workflows.</li>
+          </ul>
+        </article>
+        <article class="project-card reveal">
+          <span class="project-tag">Engineering</span>
+          <h3>BAJA SAE India vehicle development.</h3>
+          <p>Contributed to race car development through analysis, design iteration, weight optimization, and competition-style execution.</p>
+          <ul>
+            <li>Performance-driven thinking.</li>
+            <li>Collaborative build environment.</li>
+            <li>Constraint-based problem-solving.</li>
+          </ul>
+        </article>
+        <article class="project-card reveal">
+          <span class="project-tag">Innovation</span>
+          <h3>Patent-pending robotic wheel replacement concept.</h3>
+          <p>Worked on an automated mechanism aimed at reducing manual intervention and improving speed in wheel replacement workflows.</p>
+          <ul>
+            <li>Mechanism design thinking.</li>
+            <li>Structured problem-solving.</li>
+            <li>Technical documentation.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="fit" class="two-col">
+      <article class="quote-card reveal">
+        <div class="eyebrow">Positioning</div>
+        <blockquote>Not a conventional AI profile — a stronger one for real-world intelligence systems.</blockquote>
+        <p class="muted">The value lies in combining engineering logic, analytics maturity, operational reality, and hands-on AI experimentation into one point of view.</p>
+      </article>
+      <article class="panel reveal">
+        <div class="eyebrow">Why this profile matters</div>
+        <ul class="list">
+          <li>Bridges technical systems and human workflows.</li>
+          <li>Comfortable in ambiguity, ownership, and cross-functional environments.</li>
+          <li>Understands both the question layer and the execution layer.</li>
+          <li>Builds for usefulness, not just novelty.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="contact" class="split">
+      <div class="reveal">
+        <div class="eyebrow">Contact</div>
+        <h2 class="section-title">Open to ambitious work at the edge of AI, systems, and execution.</h2>
+        <p class="lede">Based in Pune, India. Best reached by email or LinkedIn.</p>
+      </div>
+      <div class="panel reveal">
+        <div class="chip-row" style="margin-top:0">
+          <a class="btn primary" href="mailto:avishkar.solat@myself.com">avishkar.solat@myself.com</a>
+          <a class="btn ghost" href="https://linkedin.com/in/ccoolavi" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="btn ghost" href="https://github.com/ccoolavi/Avishkar" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-grid">
+      <div>
+        <div class="eyebrow">Avishkar Solat</div>
+        <div class="kicker">Interdisciplinary AI systems, analytics, and engineering.</div>
+      </div>
+      <div class="kicker">Designed as a single-file portfolio for fast hosting and editing.</div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const root=document.documentElement;
+      const btn=document.querySelector('[data-theme-toggle]');
+      let theme=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+      root.setAttribute('data-theme',theme);
+      const draw=()=>{btn.textContent=theme==='dark'?'☼':'◐'; btn.setAttribute('aria-label','Switch to '+(theme==='dark'?'light':'dark')+' theme');};
+      draw();
+      btn.addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';root.setAttribute('data-theme',theme);draw();});
+      const obs=new IntersectionObserver((entries)=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.14});
+      document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+    })();
+  </script>
+</body>
+</html>

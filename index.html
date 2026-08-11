@@ -1,434 +1,668 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Avishkar Solat — Interdisciplinary AI Systems Portfolio</title>
-  <meta name="description" content="Avishkar Solat — interdisciplinary AI systems, analytics, and engineering portfolio." />
-  <link rel="preconnect" href="https://api.fontshare.com" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&f[]=zodiak@400,700&display=swap" rel="stylesheet">
-  <style>
-    :root, [data-theme="light"] {
-      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
-      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
-      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
-      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
-      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
-      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
-      --text-3xl: clamp(2.5rem, 1rem + 4vw, 5rem);
-      --space-1: .25rem; --space-2: .5rem; --space-3: .75rem; --space-4: 1rem; --space-5: 1.25rem;
-      --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem; --space-16: 4rem; --space-20: 5rem;
-      --color-bg: #f7f6f2;
-      --color-surface: #fbfaf7;
-      --color-surface-2: #f1eee8;
-      --color-surface-offset: #e8e3db;
-      --color-border: #d4d1ca;
-      --color-text: #26231d;
-      --color-text-muted: #65615a;
-      --color-text-faint: #948f86;
-      --color-text-inverse: #f9f8f4;
-      --color-primary: #0d6c72;
-      --color-primary-hover: #0a5257;
-      --color-secondary: #8a5b00;
-      --color-success: #437a22;
-      --shadow-sm: 0 1px 2px rgba(28,24,18,.06);
-      --shadow-md: 0 12px 32px rgba(28,24,18,.08);
-      --radius-sm: .5rem; --radius-md: .875rem; --radius-lg: 1.25rem; --radius-xl: 1.75rem; --radius-full: 999px;
-      --font-body: 'Satoshi', Inter, system-ui, sans-serif;
-      --font-display: 'Zodiak', Georgia, serif;
-      --content: min(1120px, calc(100vw - 2rem));
-      --grid-line: rgba(38,35,29,.08);
-    }
-    [data-theme="dark"] {
-      --color-bg: #161513;
-      --color-surface: #1c1b19;
-      --color-surface-2: #23211f;
-      --color-surface-offset: #2b2824;
-      --color-border: #3a3732;
-      --color-text: #ebe8e1;
-      --color-text-muted: #b4aea5;
-      --color-text-faint: #807a73;
-      --color-text-inverse: #181715;
-      --color-primary: #5fa4ad;
-      --color-primary-hover: #82b7bf;
-      --color-secondary: #ebb343;
-      --color-success: #8cc767;
-      --shadow-sm: 0 1px 2px rgba(0,0,0,.2);
-      --shadow-md: 0 18px 48px rgba(0,0,0,.3);
-      --grid-line: rgba(235,232,225,.08);
-    }
-    *,*::before,*::after{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:var(--font-body);font-size:var(--text-base);line-height:1.6;background:
-      radial-gradient(circle at top left, rgba(13,108,114,.08), transparent 30%),
-      radial-gradient(circle at 90% 10%, rgba(138,91,0,.08), transparent 24%),
-      linear-gradient(to bottom, transparent, transparent),
-      var(--color-bg);color:var(--color-text)}
-    img,svg{display:block;max-width:100%}
-    a{color:inherit;text-decoration:none}
-    button{font:inherit}
-    .skip-link{position:absolute;left:-999px;top:auto}.skip-link:focus{left:1rem;top:1rem;background:var(--color-primary);color:var(--color-text-inverse);padding:.75rem 1rem;border-radius:var(--radius-full);z-index:1000}
-    .shell{width:var(--content);margin:0 auto}
-    .grid-bg{position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(to right,var(--grid-line) 1px,transparent 1px),linear-gradient(to bottom,var(--grid-line) 1px,transparent 1px);background-size:40px 40px;mask-image:radial-gradient(circle at center, black 30%, transparent 82%);opacity:.5}
-    header{position:sticky;top:0;z-index:20;backdrop-filter:blur(12px);background:color-mix(in srgb, var(--color-bg) 84%, transparent);border-bottom:1px solid color-mix(in srgb, var(--color-text) 10%, transparent)}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);padding:var(--space-4) 0}
-    .brand{display:flex;align-items:center;gap:.875rem;font-weight:700;letter-spacing:.01em}
-    .logo{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--color-primary),color-mix(in srgb,var(--color-primary) 50%, var(--color-secondary)));display:grid;place-items:center;box-shadow:var(--shadow-sm)}
-    .logo svg{width:24px;height:24px;color:#fff}
-    .nav-links{display:flex;gap:var(--space-4);align-items:center;flex-wrap:wrap}
-    .nav-links a{font-size:var(--text-sm);color:var(--color-text-muted)}
-    .nav-links a:hover{color:var(--color-text)}
-    .theme-btn,.btn{border:1px solid color-mix(in srgb,var(--color-text) 12%, transparent);background:var(--color-surface);color:var(--color-text);border-radius:var(--radius-full);padding:.8rem 1rem;min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:.6rem;transition:.2s ease}
-    .theme-btn:hover,.btn:hover{transform:translateY(-1px);box-shadow:var(--shadow-sm)}
-    .btn.primary{background:var(--color-primary);color:var(--color-text-inverse);border-color:transparent}
-    .btn.primary:hover{background:var(--color-primary-hover)}
-    .btn.ghost{background:transparent}
-    main{padding:var(--space-12) 0 var(--space-20)}
-    section{padding:clamp(var(--space-8),7vw,var(--space-16)) 0}
-    .eyebrow{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.18em;color:var(--color-primary);font-weight:700}
-    .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:var(--space-8);align-items:end;min-height:calc(100dvh - 90px)}
-    .hero-card,.panel,.timeline-item,.project-card,.quote-card{background:color-mix(in srgb,var(--color-surface) 88%, transparent);border:1px solid color-mix(in srgb,var(--color-text) 10%, transparent);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm)}
-    .hero-card{padding:clamp(var(--space-6),4vw,var(--space-10));position:relative;overflow:hidden}
-    .hero-card::after{content:"";position:absolute;inset:auto -10% -18% auto;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle, color-mix(in srgb,var(--color-primary) 28%, transparent), transparent 65%);filter:blur(4px)}
-    h1{font-family:var(--font-display);font-size:clamp(3rem,6vw,6.4rem);line-height:.96;letter-spacing:-.04em;max-width:10ch;margin:.35rem 0 1rem}
-    .hero p{font-size:var(--text-lg);color:var(--color-text-muted);max-width:58ch}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-6)}
-    .hero-meta{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-4);margin-top:var(--space-8)}
-    .metric{padding:var(--space-4);background:var(--color-surface-2);border-radius:var(--radius-lg)}
-    .metric strong{display:block;font-size:var(--text-xl);line-height:1.1}
-    .hero-side{display:grid;gap:var(--space-4)}
-    .panel{padding:var(--space-6)}
-    .panel h2,.section-title{font-size:var(--text-xl);line-height:1.05;letter-spacing:-.03em;margin:0 0 .75rem}
-    .lede{color:var(--color-text-muted);max-width:65ch}
-    .chip-row{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:var(--space-4)}
-    .chip{padding:.6rem .85rem;border-radius:var(--radius-full);background:var(--color-surface-2);border:1px solid color-mix(in srgb,var(--color-text) 8%, transparent);font-size:var(--text-sm);color:var(--color-text-muted)}
-    .split{display:grid;grid-template-columns:.9fr 1.1fr;gap:var(--space-8);align-items:start}
-    .list{display:grid;gap:var(--space-3);padding:0;margin:0;list-style:none}
-    .list li{padding-left:1.1rem;position:relative;color:var(--color-text-muted)}
-    .list li::before{content:"";position:absolute;left:0;top:.72em;width:.45rem;height:.45rem;border-radius:50%;background:var(--color-primary)}
-    .timeline{display:grid;gap:var(--space-4);margin-top:var(--space-6)}
-    .timeline-item{padding:var(--space-5)}
-    .time{display:flex;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap;margin-bottom:.5rem}
-    .role{font-weight:800;font-size:var(--text-lg)}
-    .where{color:var(--color-primary);font-weight:700}
-    .muted{color:var(--color-text-muted)}
-    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-4);margin-top:var(--space-6)}
-    .project-card{padding:var(--space-5);display:flex;flex-direction:column;gap:var(--space-3);min-height:100%}
-    .project-tag{font-size:var(--text-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--color-secondary);font-weight:800}
-    .project-card h3{font-size:var(--text-lg);line-height:1.15}
-    .project-card p{color:var(--color-text-muted)}
-    .project-card ul{padding-left:1.1rem;margin:0;color:var(--color-text-muted)}
-    .quote-card{padding:var(--space-8);display:grid;gap:var(--space-4);background:linear-gradient(145deg,color-mix(in srgb,var(--color-surface) 90%, transparent),color-mix(in srgb,var(--color-primary) 8%, var(--color-surface)))}
-    blockquote{font-family:var(--font-display);font-size:clamp(1.6rem,2.6vw,2.6rem);line-height:1.12;letter-spacing:-.03em}
-    .two-col{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-4)}
-    footer{padding:var(--space-12) 0 var(--space-16);border-top:1px solid color-mix(in srgb,var(--color-text) 10%, transparent)}
-    .footer-grid{display:grid;grid-template-columns:1fr auto;gap:var(--space-4);align-items:center}
-    .kicker{color:var(--color-text-faint);font-size:var(--text-sm)}
-    .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s ease}
-    .reveal.visible{opacity:1;transform:none}
-    @media (max-width: 980px){
-      .hero,.split,.projects,.two-col,.footer-grid{grid-template-columns:1fr}
-      h1{max-width:12ch}
-      .hero{min-height:auto}
-      .nav{align-items:flex-start;flex-direction:column}
-      .hero-meta{grid-template-columns:1fr 1fr}
-    }
-    @media (max-width: 640px){
-      main{padding-top:var(--space-8)}
-      .hero-meta{grid-template-columns:1fr}
-      .nav-links{gap:var(--space-3)}
-      .panel,.hero-card,.quote-card,.project-card,.timeline-item{padding:var(--space-4)}
-      h1{font-size:clamp(2.6rem,16vw,4rem)}
-      .hero p{font-size:var(--text-base)}
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Avishkar Solat — Operations, Analytics & Applied AI Systems</title>
+<meta name="description" content="Avishkar Solat builds the systems businesses run on. 4+ years across global analytics delivery at NielsenIQ and hands-on AI automation. Cut manual processing 70%." />
+<meta name="theme-color" content="#0b0b0d" />
+<meta property="og:title" content="Avishkar Solat — Operations, Analytics & Applied AI Systems" />
+<meta property="og:description" content="I build the systems businesses run on. 100% on-time delivery at NielsenIQ. 70% manual work eliminated through automation." />
+<meta property="og:type" content="profile" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --bg:#0b0b0d; --bg-2:#111114; --surface:#141417; --surface-2:#1a1a1f;
+  --line:rgba(255,255,255,.09); --line-2:rgba(255,255,255,.16);
+  --ink:#f4f1ea; --ink-2:#a8a49c; --ink-3:#6e6a63;
+  --gold:#c9a961; --gold-2:#e0c485; --teal:#4a9d9c; --warm:#d97757;
+  --serif:'Fraunces',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',monospace;
+  --gutter:clamp(1.25rem,5vw,4rem);
+  --wide:min(1280px,100% - var(--gutter)*2);
+  --mid:min(920px,100% - var(--gutter)*2);
+  --ease:cubic-bezier(.22,1,.36,1);
+  --sect:clamp(6rem,14vh,11rem);
+}
+[data-theme="light"]{
+  --bg:#faf8f4; --bg-2:#f3efe8; --surface:#fffefb; --surface-2:#f6f2ea;
+  --line:rgba(20,18,15,.10); --line-2:rgba(20,18,15,.20);
+  --ink:#16150f; --ink-2:#565148; --ink-3:#8a8479;
+  --gold:#8a6d2a; --gold-2:#6d5520; --teal:#2c6b6a; --warm:#b4512f;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--sans);font-size:clamp(1rem,.96rem+.2vw,1.075rem);
+  line-height:1.65;font-weight:300;letter-spacing:.008em;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;
+  transition:background .5s var(--ease),color .5s var(--ease);
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+::selection{background:var(--gold);color:#0b0b0d}
+
+/* ============ ATMOSPHERE ============ */
+.aura{position:fixed;inset:0;pointer-events:none;z-index:0}
+.aura::before,.aura::after{content:"";position:absolute;border-radius:50%;filter:blur(120px);opacity:.5}
+.aura::before{width:52vw;height:52vw;top:-18vw;left:-12vw;background:radial-gradient(circle,rgba(201,169,97,.20),transparent 68%)}
+.aura::after{width:44vw;height:44vw;bottom:-16vw;right:-10vw;background:radial-gradient(circle,rgba(74,157,156,.16),transparent 68%)}
+.grain{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.035;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E")}
+.glow{position:fixed;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:2;
+  background:radial-gradient(circle,rgba(201,169,97,.09),transparent 62%);
+  transform:translate(-50%,-50%);transition:opacity .5s;opacity:0}
+@media(hover:hover) and (min-width:900px){.glow{opacity:1}}
+
+/* ============ PROGRESS ============ */
+.bar{position:fixed;top:0;left:0;height:2px;width:0;z-index:100;
+  background:linear-gradient(90deg,var(--gold),var(--warm),var(--teal))}
+
+/* ============ SHELL ============ */
+.wrap{width:var(--wide);margin-inline:auto;position:relative;z-index:3}
+.narrow{width:var(--mid);margin-inline:auto}
+section{padding-block:var(--sect);position:relative;z-index:3}
+
+/* ============ NAV ============ */
+header{position:sticky;top:0;z-index:50;backdrop-filter:blur(20px) saturate(1.6);
+  background:color-mix(in srgb,var(--bg) 72%,transparent);
+  border-bottom:1px solid transparent;transition:border-color .4s,background .4s}
+header.stuck{border-bottom-color:var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding-block:1.15rem}
+.mark{display:flex;align-items:center;gap:.7rem;font-family:var(--serif);font-size:1.05rem;font-weight:500;letter-spacing:-.01em}
+.mark i{width:9px;height:9px;border-radius:50%;background:var(--gold);
+  box-shadow:0 0 0 0 rgba(201,169,97,.6);animation:ping 2.8s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(201,169,97,.55)}70%{box-shadow:0 0 0 12px rgba(201,169,97,0)}100%{box-shadow:0 0 0 0 rgba(201,169,97,0)}}
+.menu{display:flex;gap:2rem;align-items:center}
+.menu a{font-size:.815rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);
+  font-weight:400;position:relative;padding-block:.3rem;transition:color .35s}
+.menu a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--gold);transition:width .45s var(--ease)}
+.menu a:hover{color:var(--ink)}.menu a:hover::after{width:100%}
+.navtools{display:flex;gap:.6rem;align-items:center}
+.icon{width:40px;height:40px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;
+  color:var(--ink-2);transition:.35s var(--ease)}
+.icon:hover{border-color:var(--gold);color:var(--gold);transform:rotate(18deg)}
+@media(max-width:860px){.menu{display:none}}
+
+/* ============ REVEAL ============ */
+.rv{opacity:0;transform:translateY(30px);transition:opacity .95s var(--ease),transform .95s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv[data-d="1"]{transition-delay:.09s}.rv[data-d="2"]{transition-delay:.18s}
+.rv[data-d="3"]{transition-delay:.27s}.rv[data-d="4"]{transition-delay:.36s}
+.rv[data-d="5"]{transition-delay:.45s}.rv[data-d="6"]{transition-delay:.54s}
+
+/* ============ TYPE ============ */
+.kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--gold);display:flex;align-items:center;gap:.85rem;margin-bottom:1.6rem;font-weight:500}
+.kicker::before{content:"";width:38px;height:1px;background:var(--gold);opacity:.6}
+h1{font-family:var(--serif);font-weight:300;font-size:clamp(2.9rem,8.2vw,7.2rem);
+  line-height:.95;letter-spacing:-.035em;margin:0}
+h2{font-family:var(--serif);font-weight:300;font-size:clamp(2.1rem,4.6vw,3.9rem);
+  line-height:1.06;letter-spacing:-.03em;margin:0 0 1.4rem}
+h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.3rem,2vw,1.65rem);
+  line-height:1.24;letter-spacing:-.018em;margin:0}
+.lede{font-size:clamp(1.08rem,1.5vw,1.32rem);color:var(--ink-2);line-height:1.72;max-width:60ch;font-weight:300}
+em.hl{font-style:normal;color:var(--ink);font-weight:400;
+  background:linear-gradient(transparent 66%,rgba(201,169,97,.26) 0);padding-inline:.1em}
+
+/* ============ HERO ============ */
+.hero{min-height:100svh;display:flex;align-items:center;padding-block:8rem 6rem}
+.status{display:inline-flex;align-items:center;gap:.65rem;padding:.5rem 1.05rem;
+  border:1px solid var(--line-2);border-radius:100px;font-size:.78rem;letter-spacing:.06em;
+  color:var(--ink-2);margin-bottom:2.4rem;background:color-mix(in srgb,var(--surface) 60%,transparent)}
+.status b{width:7px;height:7px;border-radius:50%;background:#5ec27a;animation:ping 2.4s infinite}
+h1 .ln{display:block;overflow:hidden}
+h1 .ln>span{display:block;transform:translateY(105%);transition:transform 1.15s var(--ease)}
+.hero.lit h1 .ln>span{transform:none}
+h1 .ln:nth-child(2)>span{transition-delay:.11s}
+h1 .ln:nth-child(3)>span{transition-delay:.22s}
+h1 .it{font-style:italic;color:var(--gold)}
+.hero-sub{margin:2.4rem 0 0;max-width:52ch}
+.cta-row{display:flex;flex-wrap:wrap;gap:1rem;margin-top:3rem}
+.btn{position:relative;display:inline-flex;align-items:center;gap:.8rem;padding:1.05rem 2rem;
+  border-radius:100px;font-size:.9rem;font-weight:500;letter-spacing:.02em;
+  border:1px solid var(--line-2);overflow:hidden;transition:.5s var(--ease);will-change:transform}
+.btn span{position:relative;z-index:2}
+.btn svg{position:relative;z-index:2;width:16px;height:16px;transition:transform .5s var(--ease)}
+.btn::before{content:"";position:absolute;inset:0;background:var(--gold);
+  transform:translateY(101%);transition:transform .55s var(--ease);z-index:1}
+.btn:hover::before{transform:none}
+.btn:hover{border-color:var(--gold);color:#0b0b0d}
+.btn:hover svg{transform:translateX(5px)}
+.btn.solid{background:var(--gold);color:#0b0b0d;border-color:var(--gold)}
+.btn.solid::before{background:var(--ink)}
+.btn.solid:hover{color:var(--bg)}
+.micro{font-size:.78rem;color:var(--ink-3);margin-top:1.1rem;letter-spacing:.02em}
+
+/* ============ STATS ============ */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:5.5rem;
+  background:var(--line);border-block:1px solid var(--line)}
+.stat{background:var(--bg);padding:2.2rem 1.5rem 2rem}
+.stat .n{font-family:var(--serif);font-size:clamp(2rem,3.6vw,3.1rem);line-height:1;
+  font-weight:300;letter-spacing:-.03em;color:var(--ink)}
+.stat .n .u{color:var(--gold);font-size:.55em;vertical-align:super;margin-left:.06em}
+.stat .l{font-size:.775rem;color:var(--ink-3);margin-top:.85rem;letter-spacing:.055em;
+  text-transform:uppercase;line-height:1.5}
+@media(max-width:820px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* ============ MARQUEE ============ */
+.strip{border-block:1px solid var(--line);padding-block:1.6rem;overflow:hidden;
+  background:color-mix(in srgb,var(--surface) 40%,transparent);position:relative;z-index:3}
+.strip::before,.strip::after{content:"";position:absolute;top:0;bottom:0;width:14%;z-index:2;pointer-events:none}
+.strip::before{left:0;background:linear-gradient(90deg,var(--bg),transparent)}
+.strip::after{right:0;background:linear-gradient(-90deg,var(--bg),transparent)}
+.track{display:flex;gap:3.5rem;width:max-content;animation:slide 34s linear infinite}
+.strip:hover .track{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-50%)}}
+.track span{font-family:var(--mono);font-size:.83rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3);white-space:nowrap;display:flex;align-items:center;gap:3.5rem}
+.track span::after{content:"◆";color:var(--gold);font-size:.5rem;opacity:.7}
+
+/* ============ SECTION HEAD ============ */
+.shead{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:5rem}
+@media(max-width:900px){.shead{grid-template-columns:1fr;gap:1.6rem;margin-bottom:3.5rem}}
+
+/* ============ OUTCOME CARDS ============ */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+@media(max-width:980px){.cards{grid-template-columns:1fr}}
+.card{position:relative;padding:2.6rem 2.2rem;border:1px solid var(--line);border-radius:20px;
+  background:color-mix(in srgb,var(--surface) 62%,transparent);overflow:hidden;
+  transition:.6s var(--ease)}
+.card::before{content:"";position:absolute;inset:0;opacity:0;transition:opacity .6s;
+  background:radial-gradient(600px circle at var(--mx,50%) var(--my,50%),rgba(201,169,97,.10),transparent 42%)}
+.card:hover{transform:translateY(-7px);border-color:var(--line-2)}
+.card:hover::before{opacity:1}
+.card .big{font-family:var(--serif);font-size:3.4rem;line-height:1;font-weight:300;
+  color:var(--gold);letter-spacing:-.035em;margin-bottom:1.4rem}
+.card p{color:var(--ink-2);font-size:.965rem;margin:.9rem 0 0;line-height:1.7}
+
+/* ============ TIMELINE ============ */
+.tl{position:relative;padding-left:2.6rem}
+.tl::before{content:"";position:absolute;left:7px;top:.6rem;bottom:.6rem;width:1px;
+  background:linear-gradient(var(--gold),var(--line) 22%,var(--line) 78%,transparent)}
+.job{position:relative;padding-bottom:3.6rem}
+.job:last-child{padding-bottom:0}
+.job::before{content:"";position:absolute;left:-2.6rem;top:.55rem;width:15px;height:15px;
+  border-radius:50%;background:var(--bg);border:1px solid var(--line-2);transition:.45s var(--ease)}
+.job.now::before{background:var(--gold);border-color:var(--gold);box-shadow:0 0 0 5px rgba(201,169,97,.14)}
+.job:hover::before{border-color:var(--gold);transform:scale(1.22)}
+.jmeta{display:flex;flex-wrap:wrap;gap:.7rem;align-items:center;margin-bottom:.6rem}
+.jdate{font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;color:var(--ink-3)}
+.pill{font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;padding:.24rem .65rem;
+  border-radius:100px;border:1px solid var(--gold);color:var(--gold);font-weight:500}
+.jorg{color:var(--gold);font-size:.94rem;margin:.35rem 0 1rem;font-weight:400}
+.job ul{list-style:none;padding:0;margin:0;display:grid;gap:.72rem}
+.job li{position:relative;padding-left:1.35rem;color:var(--ink-2);font-size:.95rem;line-height:1.68}
+.job li::before{content:"";position:absolute;left:0;top:.68em;width:5px;height:1px;background:var(--gold);opacity:.75}
+@media(max-width:640px){.tl{padding-left:1.9rem}.job::before{left:-1.9rem}}
+
+/* ============ PROJECTS ============ */
+.proj{display:grid;gap:1.5rem;grid-template-columns:repeat(3,1fr)}
+@media(max-width:980px){.proj{grid-template-columns:1fr}}
+.pc{display:flex;flex-direction:column;padding:2.3rem 2rem;border:1px solid var(--line);
+  border-radius:20px;background:color-mix(in srgb,var(--surface) 55%,transparent);
+  transition:.55s var(--ease);position:relative;overflow:hidden}
+.pc::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;
+  background:linear-gradient(90deg,var(--gold),var(--warm));transform:scaleX(0);
+  transform-origin:left;transition:transform .6s var(--ease)}
+.pc:hover{transform:translateY(-7px);border-color:var(--line-2)}
+.pc:hover::after{transform:none}
+.ptag{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--teal);margin-bottom:1.2rem;font-weight:500}
+.pc p{color:var(--ink-2);font-size:.94rem;margin:1rem 0 1.6rem;line-height:1.7;flex:1}
+.plink{display:inline-flex;align-items:center;gap:.5rem;font-size:.85rem;color:var(--gold);
+  font-weight:500;transition:gap .4s var(--ease)}
+.plink:hover{gap:.9rem}
+
+/* ============ APPROACH ============ */
+.appr{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:20px;overflow:hidden}
+@media(max-width:820px){.appr{grid-template-columns:1fr}}
+.ai{background:var(--bg);padding:2.6rem 2.2rem;transition:background .5s}
+.ai:hover{background:var(--surface)}
+.ai .num{font-family:var(--mono);font-size:.75rem;color:var(--gold);letter-spacing:.14em;margin-bottom:1.1rem}
+.ai p{color:var(--ink-2);font-size:.95rem;margin:.85rem 0 0;line-height:1.7}
+
+/* ============ CTA ============ */
+.close{text-align:center;padding-block:var(--sect)}
+.close h2{max-width:18ch;margin-inline:auto}
+.close .lede{margin-inline:auto;text-align:center}
+.reasons{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem;margin-top:2.6rem}
+.reason{font-size:.8rem;color:var(--ink-2);border:1px solid var(--line);
+  padding:.5rem 1.05rem;border-radius:100px;background:color-mix(in srgb,var(--surface) 50%,transparent)}
+.reason b{color:var(--gold);font-weight:500}
+
+/* ============ FOOTER ============ */
+footer{border-top:1px solid var(--line);padding-block:3.5rem;position:relative;z-index:3}
+.fgrid{display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;align-items:center}
+.fsoc{display:flex;gap:1.6rem}
+.fsoc a{font-size:.85rem;color:var(--ink-2);transition:color .35s;position:relative}
+.fsoc a:hover{color:var(--gold)}
+.fnote{font-size:.78rem;color:var(--ink-3)}
+.up{position:fixed;right:1.6rem;bottom:1.6rem;width:46px;height:46px;border-radius:50%;
+  border:1px solid var(--line-2);background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:blur(10px);display:grid;place-items:center;z-index:40;
+  opacity:0;pointer-events:none;transition:.45s var(--ease)}
+.up.on{opacity:1;pointer-events:auto}
+.up:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-4px)}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;
+    transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .rv{opacity:1;transform:none}
+  h1 .ln>span{transform:none}
+}
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#content">Skip to content</a>
-  <div class="grid-bg" aria-hidden="true"></div>
-  <header>
-    <div class="shell nav">
-      <a class="brand" href="#top" aria-label="Avishkar Solat home">
-        <span class="logo" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 18 12 4l8 14"/>
-            <path d="M8.2 13.2h7.6"/>
-            <path d="M10.5 18h3"/>
-          </svg>
-        </span>
-        <span>Avishkar Solat</span>
+<div class="aura"></div><div class="grain"></div><div class="glow" id="glow"></div>
+<div class="bar" id="bar"></div>
+
+<header id="hd">
+  <nav class="wrap">
+    <a href="#top" class="mark"><i></i> Avishkar Solat</a>
+    <div class="menu">
+      <a href="#work">Work</a>
+      <a href="#path">Path</a>
+      <a href="#built">Built</a>
+      <a href="#how">Approach</a>
+      <a href="#talk">Contact</a>
+    </div>
+    <div class="navtools">
+      <button class="icon" id="theme" aria-label="Toggle theme">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3a9 9 0 109 9 7 7 0 01-9-9z"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero wrap" id="hero">
+  <div style="width:100%">
+    <div class="status rv"><b></b> Open to senior analytics, operations & AI enablement roles</div>
+    <h1>
+      <span class="ln"><span>I build the</span></span>
+      <span class="ln"><span><em class="it">systems</em> businesses</span></span>
+      <span class="ln"><span>actually run on.</span></span>
+    </h1>
+    <p class="lede hero-sub rv" data-d="3">
+      Four years turning messy operational reality into <em class="hl">measured outcomes</em> — global retail analytics
+      at NielsenIQ, then rebuilding an entire business on automation and applied AI. I don't ship slideware. I ship
+      the thing, then I measure what changed.
+    </p>
+    <div class="cta-row rv" data-d="4">
+      <a href="#work" class="btn solid">
+        <span>See what 70% less manual work looks like</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#story">Story</a>
-        <a href="#work">Work</a>
-        <a href="#projects">Projects</a>
-        <a href="#fit">Why me</a>
-        <a href="#contact">Contact</a>
-        <button class="theme-btn" type="button" data-theme-toggle aria-label="Switch theme">◐</button>
-      </nav>
+      <a href="mailto:avishkar.solat@myself.com?subject=Role%20discussion" class="btn">
+        <span>Start a conversation</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+      </a>
     </div>
-  </header>
+    <p class="micro rv" data-d="5">Usually replies within a day · Pune, India · Remote-ready across APAC, EMEA & partial US overlap</p>
 
-  <main id="content" class="shell">
-    <section class="hero" id="top">
-      <article class="hero-card reveal">
-        <div class="eyebrow">Interdisciplinary AI systems · Analytics · Engineering</div>
-        <h1>Building tools that help humans think clearer and move faster.</h1>
-        <p>I bring together analytics, workflow automation, engineering rigor, and hands-on AI systems work to design practical, high-leverage solutions in messy real-world environments.</p>
-        <div class="hero-actions">
-          <a class="btn primary" href="#work">Explore experience</a>
-          <a class="btn ghost" href="mailto:avishkar.solat@myself.com">Email Avishkar</a>
-        </div>
-        <div class="hero-meta" aria-label="Highlights">
-          <div class="metric"><span class="kicker">Experience</span><strong>4+ years</strong><span class="muted">Operations, analytics, systems, execution.</span></div>
-          <div class="metric"><span class="kicker">Current edge</span><strong>AI workflows</strong><span class="muted">Local models, automation, retrieval-minded thinking.</span></div>
-          <div class="metric"><span class="kicker">Mindset</span><strong>Builder + analyst</strong><span class="muted">Hands-on, cross-functional, ambiguity-friendly.</span></div>
-          <div class="metric"><span class="kicker">Foundation</span><strong>Mechanical engineering</strong><span class="muted">Model-based reasoning, design, optimization.</span></div>
-        </div>
-      </article>
-
-<div class="hero-slider reveal">
-    <style>
-        /* Styles for the sliding tiles gallery */
-        .hero-slider {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            max-width: 900px; /* Adjust as necessary for your design */
-            height: auto; /* Or a fixed height if preferred */
-            margin: 2em auto;
-        }
-
-        .slide {
-            display: none; /* Hide all slides by default */
-            padding: 20px;
-            text-align: center;
-            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-        }
-
-        .slide.active {
-            display: block; /* Show the active slide */
-        }
-
-        .slide h1 {
-            font-size: 2.5em;
-            margin-bottom: 0.5em;
-        }
-
-        .slide p {
-            font-size: 1.2em;
-            color: var(--color-text-muted); /* Using existing variable */
-        }
-    </style>
-
-    <!-- Slide 1 -->
-    <div class="slide slide-1">
-        <h1>Problems don't respect boundaries.</h1>
-        <p>Neither do I. From cement emissions to biotech ventures to AI systems — I follow the problem wherever it leads.</p>
+    <div class="stats rv" data-d="6">
+      <div class="stat"><div class="n"><span data-n="70">0</span><span class="u">%</span></div><div class="l">Manual processing eliminated</div></div>
+      <div class="stat"><div class="n"><span data-n="100">0</span><span class="u">%</span></div><div class="l">On-time delivery at NielsenIQ</div></div>
+      <div class="stat"><div class="n"><span data-n="95">0</span><span class="u">%</span></div><div class="l">Client satisfaction sustained</div></div>
+      <div class="stat"><div class="n"><span data-n="3">0</span></div><div class="l">Continents of client delivery</div></div>
     </div>
-    <!-- Slide 2 -->
-    <div class="slide slide-2">
-        <h1>I build at the intersection of ideas most people keep separate.</h1>
-        <p>Engineering. Data. AI. Climate. Biology. Not because I dabble — because the most interesting problems live where disciplines collide.</p>
-    </div>
-    <!-- Slide 3 -->
-    <div class="slide slide-3">
-        <h1>Mechanical engineer. Analyst. AI builder. Startup thinker.</h1>
-        <p>Not a single lane. Every project here started with a question I couldn't stop thinking about.</p>
-    </div>
-    <!-- Slide 4 -->
-    <div class="slide slide-4">
-        <h1>I start with the question, not the tool.</h1>
-        <p>Whether it's global CO₂ data, AI safety, human photosynthesis, or aerospace materials — the pattern is the same: find the real problem, build something that proves the thinking.</p>
-    </div>
-    <!-- Slide 5 -->
-    <div class="slide slide-5">
-        <h1>Work that spans domains. Thinking that connects them.</h1>
-        <p>Biotech. Aerospace. Cybersecurity. Climate. AI systems. Each project is a different field — the curiosity behind each one is the same.</p>
-    </div>
-    <!-- Slide 6 -->
-    <div class="slide slide-6">
-        <h1>I make things because I can't stop asking why they don't exist yet.</h1>
-        <p>That question has taken me from aerospace polymers to human photosynthesis to AI threat models. Here's what came out of it.</p>
-    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="strip">
+  <div class="track">
+    <span>Power BI</span><span>SQL</span><span>Python</span><span>RAG Pipelines</span><span>Ollama</span>
+    <span>LM Studio</span><span>MCP</span><span>Linux / Nginx</span><span>Node.js</span><span>SQLite</span>
+    <span>Process Automation</span><span>KPI Governance</span>
+    <span>Power BI</span><span>SQL</span><span>Python</span><span>RAG Pipelines</span><span>Ollama</span>
+    <span>LM Studio</span><span>MCP</span><span>Linux / Nginx</span><span>Node.js</span><span>SQLite</span>
+    <span>Process Automation</span><span>KPI Governance</span>
+  </div>
 </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const slides = document.querySelectorAll('.slide');
-    let currentSlideIndex = 0;
-    // Set interval to 5 seconds (5000ms)
-    const slideInterval = 5000;
-
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            if (i === index) {
-                slide.classList.add('active');
-            } else {
-                slide.classList.remove('active');
-            }
-        });
-    }
-
-    // Initialize the first slide
-    showSlide(currentSlideIndex);
-
-    // Set up auto-cycling
-    setInterval(() => {
-        currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-        showSlide(currentSlideIndex);
-    }, slideInterval);
-});
-</script>
-    </section>
-
-    <section id="story" class="split">
-      <div class="reveal">
-        <div class="eyebrow">Story</div>
-        <h2 class="section-title">From engineering systems to information systems.</h2>
-        <p class="lede">My path has moved from mechanical modeling and design to global analytics delivery, business systems transformation, and AI-enabled workflows. That mix gives me a practical lens on how people search, decide, coordinate, and act.</p>
-      </div>
-      <div class="panel reveal">
-        <ul class="list">
-          <li>Started with engineering thinking: modeling, simulation, design validation, and optimization.</li>
-          <li>Learned business reality through analytics delivery, stakeholder trust, and execution under pressure.</li>
-          <li>Expanded into AI systems through local tooling, workflow automation, and hands-on experimentation.</li>
-          <li>Now focused on building intelligent systems that reduce friction between questions and action.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="work">
-      <div class="reveal">
-        <div class="eyebrow">Experience</div>
-        <h2 class="section-title">Work shaped by systems, clarity, and ownership.</h2>
-      </div>
-      <div class="timeline">
-        <article class="timeline-item reveal">
-          <div class="time"><div><div class="role">Business Operations Manager &amp; AI Systems Lead</div><div class="where">Sujata Fashions</div></div><div class="muted">Aug 2024 – Present · Pune</div></div>
-          <ul class="list">
-            <li>Led end-to-end transformation across production, inventory, billing, vendor coordination, and planning.</li>
-            <li>Built automated billing and inventory workflows that reduced manual processing time by 70%.</li>
-            <li>Set up local AI tools and workflow automation systems to improve execution speed and testing cycles.</li>
-            <li>Owned systems, website, execution flow, and day-to-day problem-solving without relying on a large team.</li>
-          </ul>
-        </article>
-        <article class="timeline-item reveal">
-          <div class="time"><div><div class="role">International Customer Success Analytics</div><div class="where">NielsenIQ</div></div><div class="muted">Feb 2022 – Aug 2024 · Pune</div></div>
-          <ul class="list">
-            <li>Owned multi-market retail analytics delivery across North America, Europe, and Asia-Pacific.</li>
-            <li>Built executive-facing Power BI dashboards that translated complex datasets into decision-ready insight.</li>
-            <li>Improved delivery workflows by spotting bottlenecks and working with engineering teams to reduce overhead.</li>
-            <li>Maintained 100% on-time delivery and 95+ CSAT on high-value international accounts.</li>
-          </ul>
-        </article>
-        <article class="timeline-item reveal">
-          <div class="time"><div><div class="role">Engineering Internships</div><div class="where">Develop Train Maintain LLP · Decibels Lab</div></div><div class="muted">2021 · Pune</div></div>
-          <ul class="list">
-            <li>Worked on engineering R&amp;D, CAD-based design, and model-based system development.</li>
-            <li>Built and validated mathematical models in MATLAB/Simulink for mechanical systems.</li>
-            <li>Contributed to documentation, reporting, and design refinement across multidisciplinary projects.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="reveal">
-        <div class="eyebrow">Selected projects</div>
-        <h2 class="section-title">Signals of curiosity, rigor, and invention.</h2>
-      </div>
-      <div class="projects">
-        <article class="project-card reveal">
-          <span class="project-tag">Systems</span>
-          <h3>Workflow automation and local AI setup.</h3>
-          <p>Configured practical AI-assisted workflows for faster execution, testing, and operational turnaround in a live business context.</p>
-          <ul>
-            <li>Local model experimentation.</li>
-            <li>Execution-oriented tooling.</li>
-            <li>Human-in-the-loop workflows.</li>
-          </ul>
-        </article>
-        <article class="project-card reveal">
-          <span class="project-tag">Engineering</span>
-          <h3>BAJA SAE India vehicle development.</h3>
-          <p>Contributed to race car development through analysis, design iteration, weight optimization, and competition-style execution.</p>
-          <ul>
-            <li>Performance-driven thinking.</li>
-            <li>Collaborative build environment.</li>
-            <li>Constraint-based problem-solving.</li>
-          </ul>
-        </article>
-        <article class="project-card reveal">
-          <span class="project-tag">Innovation</span>
-          <h3>Patent-pending robotic wheel replacement concept.</h3>
-          <p>Worked on an automated mechanism aimed at reducing manual intervention and improving speed in wheel replacement workflows.</p>
-          <ul>
-            <li>Mechanism design thinking.</li>
-            <li>Structured problem-solving.</li>
-            <li>Technical documentation.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section id="fit" class="two-col">
-      <article class="quote-card reveal">
-        <div class="eyebrow">Positioning</div>
-        <blockquote>Not a conventional AI profile — a stronger one for real-world intelligence systems.</blockquote>
-        <p class="muted">The value lies in combining engineering logic, analytics maturity, operational reality, and hands-on AI experimentation into one point of view.</p>
-      </article>
-      <article class="panel reveal">
-        <div class="eyebrow">Why this profile matters</div>
-        <ul class="list">
-          <li>Bridges technical systems and human workflows.</li>
-          <li>Comfortable in ambiguity, ownership, and cross-functional environments.</li>
-          <li>Understands both the question layer and the execution layer.</li>
-          <li>Builds for usefulness, not just novelty.</li>
-        </ul>
-      </article>
-    </section>
-
-    <section id="contact" class="split">
-      <div class="reveal">
-        <div class="eyebrow">Contact</div>
-        <h2 class="section-title">Open to ambitious work at the edge of AI, systems, and execution.</h2>
-        <p class="lede">Based in Pune, India. Best reached by email or LinkedIn.</p>
-      </div>
-      <div class="panel reveal">
-        <div class="chip-row" style="margin-top:0">
-          <a class="btn primary" href="mailto:avishkar.solat@myself.com">avishkar.solat@myself.com</a>
-          <a class="btn ghost" href="https://linkedin.com/in/ccoolavi" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a class="btn ghost" href="https://github.com/ccoolavi/Avishkar" target="_blank" rel="noopener noreferrer">GitHub</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="shell footer-grid">
-      <div>
-        <div class="eyebrow">Avishkar Solat</div>
-        <div class="kicker">Interdisciplinary AI systems, analytics, and engineering.</div>
-      </div>
-      <div class="kicker">Designed as a single-file portfolio for fast hosting and editing.</div>
+<!-- WORK -->
+<section id="work" class="wrap">
+  <div class="shead">
+    <div class="rv">
+      <div class="kicker">The work</div>
+      <h2>Three problems.<br>Three measurable answers.</h2>
     </div>
-  </footer>
+    <p class="lede rv" data-d="1">
+      Every number here has a system behind it that someone still uses today. That is the only
+      standard I hold work to.
+    </p>
+  </div>
 
-  <script>
-    (function(){
-      const root=document.documentElement;
-      const btn=document.querySelector('[data-theme-toggle]');
-      let theme=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
-      root.setAttribute('data-theme',theme);
-      const draw=()=>{btn.textContent=theme==='dark'?'☼':'◐'; btn.setAttribute('aria-label','Switch to '+(theme==='dark'?'light':'dark')+' theme');};
-      draw();
-      btn.addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';root.setAttribute('data-theme',theme);draw();});
-      const obs=new IntersectionObserver((entries)=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.14});
-      document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-    })();
-  </script>
+  <div class="cards">
+    <article class="card rv">
+      <div class="big">70<span style="font-size:.5em">%</span></div>
+      <h3>Manual work, removed</h3>
+      <p>Billing and inventory ran on paper and memory. I instrumented a baseline first, automated the
+      highest-cost processes, then measured the delta rather than asserting it. Month-end went from a
+      scramble to audit-ready.</p>
+    </article>
+    <article class="card rv" data-d="1">
+      <div class="big">100<span style="font-size:.5em">%</span></div>
+      <h3>Delivery that never slipped</h3>
+      <p>Multi-market retail analytics for international FMCG accounts across North America, Europe and
+      APAC. Concurrent multi-million-dollar contracts, sustained 95% CSAT, and a full cloud migration
+      with zero client escalations.</p>
+    </article>
+    <article class="card rv" data-d="2">
+      <div class="big">0</div>
+      <h3>Cloud dependency for private data</h3>
+      <p>Built a retrieval system over internal documents running entirely on local models — a deliberate
+      cost, privacy and latency trade-off against hosted APIs. Staff query SOPs and vendor terms in plain
+      language; nothing leaves the building.</p>
+    </article>
+  </div>
+</section>
+
+<!-- PATH -->
+<section id="path" class="wrap">
+  <div class="shead">
+    <div class="rv">
+      <div class="kicker">The path</div>
+      <h2>From engineering rigour to operating systems.</h2>
+    </div>
+    <p class="lede rv" data-d="1">
+      Mechanical engineering taught me to model before building. Analytics taught me that the
+      hardest part is agreeing what the number means. Operations taught me that neither matters
+      unless someone actually uses it.
+    </p>
+  </div>
+
+  <div class="narrow" style="margin-inline:0">
+  <div class="tl">
+    <div class="job now rv">
+      <div class="jmeta"><span class="jdate">APR 2026 — PRESENT</span><span class="pill">Current</span></div>
+      <h3>Business Operations Manager</h3>
+      <div class="jorg">Sujata Fashions · Pune</div>
+      <ul>
+        <li>Promoted to own business operations end to end — production, inventory, billing, vendor coordination and planning.</li>
+        <li>Own vendor negotiation and production scheduling with full P&amp;L visibility and no external team dependency.</li>
+        <li>Authored the SOPs, process maps and operational checklists the business now runs on.</li>
+        <li>Continue to own and extend the automation and AI systems built in the prior role.</li>
+      </ul>
+    </div>
+
+    <div class="job rv" data-d="1">
+      <div class="jmeta"><span class="jdate">AUG 2024 — MAR 2026</span></div>
+      <h3>Operations Analyst &amp; AI Systems Lead</h3>
+      <div class="jorg">Sujata Fashions · Pune</div>
+      <ul>
+        <li>Designed and deployed automated billing and inventory workflows, cutting manual processing time by 70%.</li>
+        <li>Built a RAG pipeline over internal documents with locally hosted LLMs (Ollama, LM Studio) and MCP-connected tooling.</li>
+        <li>Built and maintained the business website and operational workflows on a self-managed Linux stack.</li>
+        <li>Designed the reporting layer — inventory turns, throughput, vendor performance, margin by line.</li>
+      </ul>
+    </div>
+
+    <div class="job rv" data-d="2">
+      <div class="jmeta"><span class="jdate">FEB 2022 — AUG 2024</span></div>
+      <h3>International Customer Success &amp; Analytics Analyst</h3>
+      <div class="jorg">NielsenIQ (NIQ) · Pune</div>
+      <ul>
+        <li>Owned analytics delivery for international FMCG accounts across North America, Europe and APAC.</li>
+        <li>Built executive Power BI dashboards used directly in QBRs by brand and category leadership.</li>
+        <li>Defined and governed KPI definitions with clients, ending recurring metric disputes that delayed sign-off.</li>
+        <li>Sustained 100% on-time delivery and 95% CSAT on multi-million-dollar annual contracts.</li>
+        <li>Managed client communication through a full Google Cloud migration with zero escalations to senior management.</li>
+      </ul>
+    </div>
+
+    <div class="job rv" data-d="3">
+      <div class="jmeta"><span class="jdate">2021</span></div>
+      <h3>Engineering Internships</h3>
+      <div class="jorg">Develop Train Maintain LLP · Decibels Lab</div>
+      <ul>
+        <li>Built and validated mathematical models of mechanical systems in MATLAB/Simulink.</li>
+        <li>R&amp;D support for energy-efficient solutions; CAD modelling and technical documentation.</li>
+      </ul>
+    </div>
+
+    <div class="job rv" data-d="4">
+      <div class="jmeta"><span class="jdate">SEP 2018 — JUN 2021</span></div>
+      <h3>Executive Assistant <span style="color:var(--ink-3);font-size:.75em">— concurrent with studies</span></h3>
+      <div class="jorg">Sujata Fashions · Pune</div>
+      <ul>
+        <li>Supported management reporting and inter-departmental coordination while completing a full-time B.E. programme.</li>
+      </ul>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- BUILT -->
+<section id="built" class="wrap">
+  <div class="shead">
+    <div class="rv">
+      <div class="kicker">Built, not described</div>
+      <h2>Things you can actually open.</h2>
+    </div>
+    <p class="lede rv" data-d="1">
+      Claims are cheap. These are public, and the code is there to read.
+    </p>
+  </div>
+
+  <div class="proj">
+    <article class="pc rv">
+      <div class="ptag">Automation · Live system</div>
+      <h3>Billing &amp; inventory automation</h3>
+      <p>The system behind the 70% figure. Scripted validation and reporting over a SQLite store,
+      replacing a manual paper process and eliminating a recurring class of transcription errors.</p>
+      <a class="plink" href="https://github.com/ccoolavi/tailoring-bill-book" target="_blank" rel="noopener">
+        View repository
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+    </article>
+
+    <article class="pc rv" data-d="1">
+      <div class="ptag">Applied AI · Local-first</div>
+      <h3>Internal retrieval assistant</h3>
+      <p>RAG over SOPs, vendor terms and product specifications, running on local models with MCP-connected
+      tooling. Knowledge that lived in individual heads became queryable in plain language.</p>
+      <a class="plink" href="https://github.com/ccoolavi" target="_blank" rel="noopener">
+        Explore GitHub
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+    </article>
+
+    <article class="pc rv" data-d="2">
+      <div class="ptag">Engineering · Patent-pending</div>
+      <h3>Robotic wheel replacement</h3>
+      <p>Final-year capstone: an automated mechanical handling concept designed to cut manual intervention
+      and turnaround time. Mechanism design, functional reasoning and full technical documentation.</p>
+      <a class="plink" href="#talk">
+        Ask me about it
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </article>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section id="how" class="wrap">
+  <div class="shead">
+    <div class="rv">
+      <div class="kicker">How I work</div>
+      <h2>Four habits that survive contact with reality.</h2>
+    </div>
+    <p class="lede rv" data-d="1">
+      I use AI tools heavily and I'm precise about where they help and where they don't.
+      That distinction is the job.
+    </p>
+  </div>
+
+  <div class="appr rv">
+    <div class="ai">
+      <div class="num">01</div>
+      <h3>Baseline before building</h3>
+      <p>A number you didn't measure before the change isn't an outcome, it's a story. I instrument
+      first so the delta is defensible when someone senior pushes back on it.</p>
+    </div>
+    <div class="ai">
+      <div class="num">02</div>
+      <h3>Adoption is the only metric</h3>
+      <p>A system nobody uses is a hobby. I train, document, and iterate against real objections
+      from non-technical staff until the thing is genuinely in daily use.</p>
+    </div>
+    <div class="ai">
+      <div class="num">03</div>
+      <h3>Verify what the model says</h3>
+      <p>I build with AI daily. I also know exactly where it produces confident nonsense — and I design
+      the verification step before I trust the output on anything workflow-critical.</p>
+    </div>
+    <div class="ai">
+      <div class="num">04</div>
+      <h3>Translate in both directions</h3>
+      <p>Most delivery failures are definitional, not technical. Years of sitting between clients,
+      delivery teams and engineering taught me to fix the disagreement before writing the query.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<section id="talk" class="close wrap">
+  <div class="rv">
+    <div class="kicker" style="justify-content:center">Let's talk</div>
+    <h2>If you're hiring for the gap between <em class="it">data</em> and <em class="it">done</em> — that's my job.</h2>
+    <p class="lede">
+      I'm looking for senior analytics, operations, or AI enablement work where ownership is real
+      and the outcome is measurable. If that's the role you're filling, I'd like to hear about it.
+    </p>
+    <div class="cta-row" style="justify-content:center">
+      <a href="mailto:avishkar.solat@myself.com?subject=Role%20discussion&body=Hi%20Avishkar%2C%0A%0AI'd%20like%20to%20talk%20about%20a%20role." class="btn solid">
+        <span>Email me directly</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="./resume.pdf" class="btn" download>
+        <span>Download résumé</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v12M7 12l5 5 5-5M5 20h14"/></svg>
+      </a>
+    </div>
+    <div class="reasons">
+      <span class="reason"><b>4+</b> years experience</span>
+      <span class="reason"><b>B.E.</b> Mechanical · CGPA 9.47/10</span>
+      <span class="reason"><b>Google</b> Data Analytics Certified</span>
+      <span class="reason"><b>Remote</b>-ready, IST based</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap fgrid">
+    <div>
+      <div class="mark" style="margin-bottom:.5rem"><i></i> Avishkar Solat</div>
+      <div class="fnote">Operations · Analytics · Applied AI Systems — Pune, India</div>
+    </div>
+    <div class="fsoc">
+      <a href="mailto:avishkar.solat@myself.com">Email</a>
+      <a href="https://linkedin.com/in/ccoolavi" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/ccoolavi" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<button class="up" id="up" aria-label="Back to top">
+  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+(function(){
+  var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* theme */
+  var t = document.getElementById('theme'), root = document.documentElement;
+  try{ var s = localStorage.getItem('theme'); if(s) root.setAttribute('data-theme', s); }catch(e){}
+  t.addEventListener('click', function(){
+    var n = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', n);
+    try{ localStorage.setItem('theme', n); }catch(e){}
+  });
+
+  /* hero lines */
+  requestAnimationFrame(function(){
+    setTimeout(function(){ document.getElementById('hero').classList.add('lit'); }, 90);
+  });
+
+  /* reveal */
+  var els = document.querySelectorAll('.rv');
+  if(rm){ els.forEach(function(e){ e.classList.add('in'); }); }
+  else{
+    var io = new IntersectionObserver(function(ent){
+      ent.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); } });
+    }, { threshold:.12, rootMargin:'0px 0px -8% 0px' });
+    els.forEach(function(e){ io.observe(e); });
+  }
+
+  /* counters */
+  var seen = false;
+  var cio = new IntersectionObserver(function(ent){
+    ent.forEach(function(x){
+      if(!x.isIntersecting || seen) return; seen = true;
+      document.querySelectorAll('[data-n]').forEach(function(el){
+        var target = +el.getAttribute('data-n'), dur = 1500, t0 = performance.now();
+        if(rm){ el.textContent = target; return; }
+        (function step(now){
+          var p = Math.min((now - t0)/dur, 1);
+          el.textContent = Math.round(target * (1 - Math.pow(1-p, 3)));
+          if(p < 1) requestAnimationFrame(step);
+        })(t0);
+      });
+    });
+  }, { threshold:.4 });
+  var st = document.querySelector('.stats'); if(st) cio.observe(st);
+
+  /* progress + header + up */
+  var bar = document.getElementById('bar'), hd = document.getElementById('hd'), up = document.getElementById('up'), tick = false;
+  function onScroll(){
+    var y = window.scrollY, h = document.body.scrollHeight - innerHeight;
+    bar.style.width = (h > 0 ? (y/h)*100 : 0) + '%';
+    hd.classList.toggle('stuck', y > 40);
+    up.classList.toggle('on', y > 700);
+    tick = false;
+  }
+  addEventListener('scroll', function(){ if(!tick){ requestAnimationFrame(onScroll); tick = true; } }, {passive:true});
+  onScroll();
+  up.addEventListener('click', function(){ scrollTo({top:0, behavior: rm ? 'auto':'smooth'}); });
+
+  /* cursor glow + card spotlight */
+  if(!rm && matchMedia('(hover:hover)').matches && innerWidth > 900){
+    var g = document.getElementById('glow'), gx=0, gy=0, cx=0, cy=0;
+    addEventListener('pointermove', function(e){ gx = e.clientX; gy = e.clientY; }, {passive:true});
+    (function loop(){ cx += (gx-cx)*.1; cy += (gy-cy)*.1; g.style.left = cx+'px'; g.style.top = cy+'px'; requestAnimationFrame(loop); })();
+    document.querySelectorAll('.card').forEach(function(c){
+      c.addEventListener('pointermove', function(e){
+        var r = c.getBoundingClientRect();
+        c.style.setProperty('--mx', (e.clientX-r.left)+'px');
+        c.style.setProperty('--my', (e.clientY-r.top)+'px');
+      });
+    });
+  }
+
+  /* magnetic buttons */
+  if(!rm && matchMedia('(hover:hover)').matches){
+    document.querySelectorAll('.btn').forEach(function(b){
+      b.addEventListener('pointermove', function(e){
+        var r = b.getBoundingClientRect();
+        b.style.transform = 'translate(' + ((e.clientX-r.left-r.width/2)*.14) + 'px,' + ((e.clientY-r.top-r.height/2)*.24) + 'px)';
+      });
+      b.addEventListener('pointerleave', function(){ b.style.transform = ''; });
+    });
+  }
+})();
+</script>
 </body>
 </html>
