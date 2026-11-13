@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101b2b">
+  <meta name="description" content="Avishkar Solat — business and technology leader working across strategy, operations, enterprise delivery, analytics, engineering and applied AI systems.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Avishkar Solat | Business & Technology Leadership">
+  <meta property="og:description" content="Connecting business strategy, operations, data and technology to deliver measurable outcomes.">
+  <meta property="og:url" content="https://ccoolavi.github.io/Avishkar/">
+  <title>Avishkar Solat | Business & Technology Leadership</title>
+  <style>
+    :root {
+      --ink: #172437;
+      --muted: #647184;
+      --navy: #101b2b;
+      --navy-2: #17283d;
+      --paper: #f5f4f0;
+      --white: #ffffff;
+      --line: #e3e5e7;
+      --accent: #c69b5c;
+      --accent-soft: #f1e8d9;
+      --teal: #3e7c78;
+      --shadow: 0 18px 50px rgba(20, 34, 51, .09);
+      --radius: 18px;
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+    .container { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--teal);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .section { padding: 96px 0; }
+    .section-head { max-width: 720px; margin-bottom: 42px; }
+    .section-head h2 {
+      margin: 0;
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.1rem, 4vw, 3.4rem);
+      font-weight: 500;
+      letter-spacing: -.045em;
+      line-height: 1.08;
+    }
+    .section-head p:not(.eyebrow) { margin: 18px 0 0; color: var(--muted); font-size: 1.02rem; }
+
+    /* Navigation */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(16, 27, 43, .96);
+      border-bottom: 1px solid rgba(255,255,255,.09);
+      backdrop-filter: blur(14px);
+    }
+    .nav-wrap { min-height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 12px; color: #fff; font-weight: 750; letter-spacing: .01em; }
+    .brand-mark {
+      width: 36px; height: 36px; display: grid; place-items: center;
+      border: 1px solid rgba(198,155,92,.7); border-radius: 50%;
+      color: var(--accent); font-family: Georgia, serif; font-size: 1rem;
+    }
+    .brand small { display: block; color: #aeb8c5; font-size: .65rem; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 27px; }
+    .nav-links a { color: #d5dce5; font-size: .84rem; font-weight: 650; transition: color .2s ease; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links .nav-contact { padding: 10px 16px; border: 1px solid rgba(198,155,92,.65); border-radius: 999px; color: #f0d7b2; }
+    .menu-toggle { display: none; border: 1px solid rgba(255,255,255,.25); border-radius: 10px; padding: 8px 11px; background: transparent; color: #fff; font: inherit; }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 104px 0 82px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 85% 18%, rgba(62,124,120,.22), transparent 28%),
+        radial-gradient(circle at 15% 90%, rgba(198,155,92,.13), transparent 26%),
+        linear-gradient(128deg, var(--navy) 0%, #15263b 68%, #1b3044 100%);
+    }
+    .hero::after {
+      content: ""; position: absolute; width: 470px; height: 470px; right: -180px; bottom: -300px;
+      border: 1px solid rgba(198,155,92,.18); border-radius: 50%;
+      box-shadow: 0 0 0 42px rgba(198,155,92,.025), 0 0 0 90px rgba(198,155,92,.02);
+      pointer-events: none;
+    }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.45fr .75fr; gap: 68px; align-items: center; }
+    .status {
+      display: inline-flex; align-items: center; gap: 9px; margin-bottom: 25px;
+      color: #e3c99f; font-size: .72rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase;
+    }
+    .status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #89b6a7; box-shadow: 0 0 0 5px rgba(137,182,167,.12); }
+    h1 {
+      max-width: 760px; margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.25rem, 6.8vw, 6rem); font-weight: 500;
+      letter-spacing: -.065em; line-height: .99;
+    }
+    h1 span { color: #dfbd88; }
+    .hero-lead { max-width: 720px; margin: 26px 0 0; color: #d0d8e1; font-size: clamp(1.04rem, 1.6vw, 1.22rem); line-height: 1.8; }
+    .hero-sub { margin: 18px 0 0; color: #9eacbb; font-size: .9rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 34px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      min-height: 48px; padding: 12px 19px; border-radius: 999px;
+      font-size: .88rem; font-weight: 800; transition: transform .2s ease, background .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--accent); color: #172437; }
+    .btn-primary:hover { background: #d8b47d; }
+    .btn-ghost { border: 1px solid rgba(255,255,255,.27); color: #f2f4f7; }
+    .btn-ghost:hover { background: rgba(255,255,255,.08); }
+    .hero-panel {
+      padding: 28px; border: 1px solid rgba(255,255,255,.14); border-radius: var(--radius);
+      background: rgba(255,255,255,.055); box-shadow: 0 24px 70px rgba(0,0,0,.12);
+    }
+    .hero-panel .panel-label { margin: 0 0 19px; color: #d9b77f; font-size: .7rem; font-weight: 850; letter-spacing: .15em; text-transform: uppercase; }
+    .pillar { padding: 15px 0; border-top: 1px solid rgba(255,255,255,.12); }
+    .pillar strong { display: block; color: #fff; font-family: Georgia, serif; font-size: 1.2rem; font-weight: 500; }
+    .pillar span { display: block; margin-top: 4px; color: #aeb9c7; font-size: .83rem; }
+
+    /* Metrics */
+    .metrics-band { position: relative; z-index: 2; margin-top: -1px; background: #fff; border-bottom: 1px solid var(--line); }
+    .metrics { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .metric { padding: 28px 24px 30px; border-right: 1px solid var(--line); }
+    .metric:first-child { border-left: 1px solid var(--line); }
+    .metric strong { display: block; color: var(--navy); font-family: Georgia, serif; font-size: clamp(2.1rem, 3vw, 3rem); font-weight: 500; letter-spacing: -.05em; line-height: 1.1; }
+    .metric span { display: block; margin-top: 8px; color: var(--muted); font-size: .79rem; line-height: 1.45; }
+
+    /* Positioning */
+    .intro-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 70px; align-items: start; }
+    .intro-statement { position: sticky; top: 112px; }
+    .intro-statement h2 { margin: 0; color: var(--navy); font-family: Georgia, serif; font-size: clamp(2.25rem, 4vw, 3.5rem); font-weight: 500; letter-spacing: -.05em; line-height: 1.1; }
+    .intro-statement p { margin: 20px 0 0; color: var(--muted); }
+    .principles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .principle { min-height: 190px; padding: 23px; border: 1px solid var(--line); border-radius: 15px; background: rgba(255,255,255,.72); }
+    .principle .num { color: var(--accent); font-family: Georgia, serif; font-size: 1.45rem; }
+    .principle h3 { margin: 13px 0 8px; color: var(--navy); font-size: 1rem; }
+    .principle p { margin: 0; color: var(--muted); font-size: .88rem; }
+
+    /* Work */
+    .work-section { background: #fff; }
+    .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .work-card { position: relative; padding: 30px; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; transition: transform .22s ease, box-shadow .22s ease; }
+    .work-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .work-card .card-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .tag { display: inline-block; padding: 6px 10px; border-radius: 999px; background: var(--accent-soft); color: #82633a; font-size: .68rem; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+    .card-index { color: #b4bac1; font-family: Georgia, serif; font-size: 1.35rem; }
+    .work-card h3 { margin: 21px 0 10px; color: var(--navy); font-family: Georgia, serif; font-size: 1.65rem; font-weight: 500; letter-spacing: -.025em; line-height: 1.16; }
+    .work-card p { margin: 0; color: var(--muted); font-size: .92rem; }
+    .result { display: flex; align-items: baseline; gap: 10px; margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line); }
+    .result strong { color: var(--teal); font-family: Georgia, serif; font-size: 1.8rem; font-weight: 500; white-space: nowrap; }
+    .result span { color: var(--muted); font-size: .78rem; }
+    .card-detail { margin-top: 16px !important; color: #7a8795 !important; font-size: .82rem !important; }
+
+    /* Career */
+    .career-layout { display: grid; grid-template-columns: .68fr 1.32fr; gap: 72px; }
+    .career-aside h2 { margin: 0; color: var(--navy); font-family: Georgia, serif; font-size: clamp(2.3rem, 4vw, 3.6rem); font-weight: 500; letter-spacing: -.05em; line-height: 1.08; }
+    .career-aside p { color: var(--muted); }
+    .career-aside .note { margin-top: 27px; padding: 17px 19px; border-left: 3px solid var(--accent); background: #eeece6; color: #566273; font-size: .85rem; }
+    .timeline { position: relative; padding-left: 31px; }
+    .timeline::before { content: ""; position: absolute; top: 8px; bottom: 8px; left: 6px; width: 1px; background: #d8d9d7; }
+    .role { position: relative; padding: 0 0 34px; }
+    .role:last-child { padding-bottom: 0; }
+    .role::before { content: ""; position: absolute; left: -31px; top: 7px; width: 11px; height: 11px; border: 2px solid var(--paper); border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 1px var(--teal); }
+    .role-date { color: var(--teal); font-size: .7rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+    .role h3 { margin: 6px 0 4px; color: var(--navy); font-family: Georgia, serif; font-size: 1.45rem; font-weight: 500; }
+    .role-company { color: #7d8792; font-size: .86rem; font-weight: 700; }
+    .role ul { margin: 14px 0 0; padding-left: 18px; color: var(--muted); font-size: .87rem; }
+    .role li { margin: 6px 0; padding-left: 3px; }
+
+    /* Builds */
+    .builds-section { background: var(--navy); color: #fff; }
+    .builds-section .eyebrow { color: #d9b77f; }
+    .builds-section .section-head h2 { color: #fff; }
+    .builds-section .section-head p:not(.eyebrow) { color: #aeb8c5; }
+    .build-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+    .build-card { display: flex; flex-direction: column; min-height: 250px; padding: 24px; border: 1px solid rgba(255,255,255,.13); border-radius: 15px; background: rgba(255,255,255,.045); }
+    .build-card .build-type { color: #d9b77f; font-size: .68rem; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
+    .build-card h3 { margin: 15px 0 9px; color: #fff; font-family: Georgia, serif; font-size: 1.35rem; font-weight: 500; }
+    .build-card p { margin: 0 0 20px; color: #aeb8c5; font-size: .85rem; }
+    .build-card a { margin-top: auto; color: #e1c391; font-size: .82rem; font-weight: 800; }
+    .build-card a:hover { color: #fff; }
+
+    /* Leadership approach + capabilities */
+    .approach-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .approach { padding: 22px; border-top: 2px solid var(--accent); background: #fff; }
+    .approach h3 { margin: 0 0 9px; color: var(--navy); font-family: Georgia, serif; font-size: 1.2rem; font-weight: 500; }
+    .approach p { margin: 0; color: var(--muted); font-size: .84rem; }
+    .capability-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
+    .capability { padding: 23px; border: 1px solid var(--line); border-radius: 15px; background: rgba(255,255,255,.62); }
+    .capability h3 { margin: 0 0 11px; color: var(--navy); font-size: .97rem; }
+    .capability p { margin: 0; color: var(--muted); font-size: .84rem; }
+    .tool-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 30px; }
+    .tool-list span { padding: 7px 11px; border: 1px solid #dfe2e3; border-radius: 999px; background: rgba(255,255,255,.65); color: #647184; font-size: .75rem; }
+
+    /* Background */
+    .background-section { background: #fff; }
+    .background-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .background-card { padding: 27px; border: 1px solid var(--line); border-radius: 15px; }
+    .background-card h3 { margin: 0 0 14px; color: var(--navy); font-family: Georgia, serif; font-size: 1.4rem; font-weight: 500; }
+    .background-card p { margin: 6px 0; color: var(--muted); font-size: .88rem; }
+    .background-card strong { color: var(--ink); }
+    .internships { margin-top: 18px; padding: 27px; border: 1px solid var(--line); border-radius: 15px; background: #f9f8f5; }
+    .internships h3 { margin: 0 0 20px; color: var(--navy); font-family: Georgia, serif; font-size: 1.45rem; font-weight: 500; }
+    .internship-list { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .internship h4 { margin: 0 0 5px; color: var(--ink); font-size: .94rem; }
+    .internship .date { color: var(--teal); font-size: .72rem; font-weight: 850; letter-spacing: .06em; text-transform: uppercase; }
+    .internship p { margin: 8px 0 0; color: var(--muted); font-size: .84rem; }
+
+    /* Contact */
+    .contact-section { padding: 90px 0; color: #fff; background: linear-gradient(120deg, #17283d, #101b2b); }
+    .contact-wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: 60px; align-items: center; }
+    .contact-section .eyebrow { color: #d9b77f; }
+    .contact-section h2 { margin: 0; max-width: 700px; color: #fff; font-family: Georgia, serif; font-size: clamp(2.4rem, 5vw, 4.4rem); font-weight: 500; letter-spacing: -.055em; line-height: 1.05; }
+    .contact-section p { color: #b8c3cf; }
+    .contact-links { display: grid; gap: 12px; }
+    .contact-link { display: flex; justify-content: space-between; align-items: center; gap: 15px; padding: 16px 18px; border: 1px solid rgba(255,255,255,.16); border-radius: 12px; color: #f1e0c3; font-size: .9rem; font-weight: 750; }
+    .contact-link:hover { background: rgba(255,255,255,.07); }
+    .contact-link span:last-child { color: #91a0b0; }
+    footer { padding: 23px 0; color: #98a5b4; background: #0c1522; font-size: .78rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+    footer a { color: #d9b77f; }
+
+    @media (max-width: 900px) {
+      .hero-grid, .intro-grid, .career-layout, .contact-wrap { grid-template-columns: 1fr; gap: 38px; }
+      .hero-panel { max-width: 620px; }
+      .intro-statement { position: static; }
+      .build-grid { grid-template-columns: repeat(2, 1fr); }
+      .approach-grid { grid-template-columns: repeat(2, 1fr); }
+      .capability-grid { grid-template-columns: repeat(2, 1fr); }
+      .career-layout { gap: 28px; }
+      .career-aside { max-width: 650px; }
+    }
+    @media (max-width: 680px) {
+      .container { width: min(100% - 34px, var(--max)); }
+      .section { padding: 70px 0; }
+      .nav-wrap { min-height: 66px; }
+      .menu-toggle { display: inline-flex; }
+      .nav-links {
+        display: none; position: absolute; top: 65px; left: 0; right: 0; padding: 18px 22px 22px;
+        flex-direction: column; align-items: stretch; gap: 0; background: var(--navy); border-bottom: 1px solid rgba(255,255,255,.12);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px 4px; }
+      .nav-links .nav-contact { margin-top: 8px; text-align: center; }
+      .hero { padding: 75px 0 63px; }
+      .hero-grid { gap: 34px; }
+      .hero-panel { padding: 22px; }
+      .metrics { grid-template-columns: repeat(2, 1fr); }
+      .metric { padding: 22px 17px; border-bottom: 1px solid var(--line); }
+      .metric:nth-child(odd) { border-left: 1px solid var(--line); }
+      .metric:nth-child(even) { border-right: 1px solid var(--line); }
+      .principles, .work-grid, .build-grid, .approach-grid, .capability-grid, .background-grid, .internship-list { grid-template-columns: 1fr; }
+      .principle { min-height: unset; }
+      .work-card { padding: 24px; }
+      .build-card { min-height: 215px; }
+      .contact-section { padding: 72px 0; }
+      .footer-inner { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+    @media print {
+      .site-header, .hero-actions, .menu-toggle { display: none !important; }
+      body { background: #fff; }
+      .hero, .builds-section, .contact-section { color: #172437; background: #fff !important; }
+      .hero h1, .section-head h2, .builds-section .section-head h2, .contact-section h2 { color: #172437 !important; }
+      .hero-lead, .hero-sub, .builds-section .section-head p:not(.eyebrow), .build-card p, .contact-section p { color: #465466 !important; }
+      .section { padding: 35px 0; break-inside: avoid; }
+      .work-card, .build-card, .principle, .capability, .background-card { break-inside: avoid; box-shadow: none; }
+      a { text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top" aria-label="Avishkar Solat home">
+        <span class="brand-mark">AS</span>
+        <span>AVISHKAR SOLAT<small>Business & Technology Leadership</small></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <nav class="nav-links" id="nav-links" aria-label="Main navigation">
+        <a href="#leadership">Leadership</a>
+        <a href="#impact">Impact</a>
+        <a href="#career">Career</a>
+        <a href="#work">Selected Work</a>
+        <a href="#background">Background</a>
+        <a class="nav-contact" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="status">Open to global leadership & transformation opportunities</div>
+          <h1>I connect business strategy, operations and <span>technology.</span></h1>
+          <p class="hero-lead">I turn complex business environments into systems that perform — aligning people, processes, data and technology from strategic direction through implementation and adoption.</p>
+          <p class="hero-sub">Business leadership · Enterprise delivery · Applied AI · Analytics · Systems thinking</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#impact">Explore business impact <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-ghost" href="resume.pdf" download="resume.pdf" aria-label="Download CV PDF">Download CV <span aria-hidden="true">↓</span></a>
+            <a class="btn btn-ghost" href="mailto:avishkar.solat@myself.com">Start a conversation <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <aside class="hero-panel" aria-label="Leadership focus">
+          <p class="panel-label">Leadership focus</p>
+          <div class="pillar"><strong>Business & Strategy</strong><span>Turning priorities into executable operating plans.</span></div>
+          <div class="pillar"><strong>Transformation & Operations</strong><span>Redesigning workflows, controls and performance systems.</span></div>
+          <div class="pillar"><strong>Technology & AI</strong><span>Making infrastructure and intelligent systems useful in practice.</span></div>
+          <div class="pillar"><strong>Enterprise Delivery</strong><span>Aligning stakeholders, teams and outcomes across markets.</span></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="metrics-band" id="impact" aria-label="Selected professional outcomes">
+      <div class="container metrics">
+        <div class="metric"><strong>70%</strong><span>Reduction in manual processing time through billing and inventory transformation.</span></div>
+        <div class="metric"><strong>100%</strong><span>On-time delivery against contractual SLAs at NielsenIQ.</span></div>
+        <div class="metric"><strong>95%</strong><span>Client satisfaction sustained across assigned enterprise portfolios.</span></div>
+        <div class="metric"><strong>45%</strong><span>Improvement in campaign cost per lead across marketing initiatives.</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="leadership">
+      <div class="container intro-grid">
+        <div class="intro-statement">
+          <p class="eyebrow">How I create value</p>
+          <h2>Leadership is connecting the parts others manage separately.</h2>
+          <p>My work sits at the intersection of business objectives, operating realities and technology. I focus on understanding how the whole system behaves — then improving the parts that determine its performance.</p>
+        </div>
+        <div class="principles">
+          <article class="principle"><span class="num">01</span><h3>Strategy into execution</h3><p>Translate high-level objectives into priorities, operating plans, ownership and measurable outcomes.</p></article>
+          <article class="principle"><span class="num">02</span><h3>Systems over symptoms</h3><p>Find the structural cause of recurring problems and redesign the process rather than repeatedly correcting the same failure.</p></article>
+          <article class="principle"><span class="num">03</span><h3>Technology with purpose</h3><p>Use AI, automation, analytics and infrastructure where they solve real business problems and justify their operating cost.</p></article>
+          <article class="principle"><span class="num">04</span><h3>Adoption as the outcome</h3><p>Build for the people who use the system. Documentation, training, verification and iteration are part of delivery.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section work-section" id="work">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Selected business outcomes</p>
+          <h2>Complex problems. Measurable change.</h2>
+          <p>A selection of transformation and delivery work across business operations, enterprise platforms, commercial analytics and AI infrastructure.</p>
+        </div>
+        <div class="work-grid">
+          <article class="work-card">
+            <div class="card-top"><span class="tag">Business transformation</span><span class="card-index">01</span></div>
+            <h3>Rebuilding billing and inventory operations</h3>
+            <p>Mapped the existing workflows, established a baseline, identified manual bottlenecks and redesigned the operating process around structured data, automation and management reporting.</p>
+            <div class="result"><strong>70%</strong><span>less manual processing time against the measured pre-change baseline</span></div>
+            <p class="card-detail">Also addressed a recurring class of transcription errors at source and improved month-end process discipline.</p>
+          </article>
+          <article class="work-card">
+            <div class="card-top"><span class="tag">Enterprise delivery</span><span class="card-index">02</span></div>
+            <h3>International client delivery and platform transition</h3>
+            <p>Supported international FMCG accounts across North America, Europe and APAC. Personally handled client configuration, data loads, coverage comparisons, output validation, platform monitoring and BAU maintenance during the Discover transition.</p>
+            <div class="result"><strong>100% / 95%</strong><span>on-time delivery / client satisfaction against contractual SLAs</span></div>
+            <p class="card-detail">The client-side Discover migration was completed with zero migration-related escalations to senior management.</p>
+          </article>
+          <article class="work-card">
+            <div class="card-top"><span class="tag">Commercial analytics</span><span class="card-index">03</span></div>
+            <h3>Turning campaign data into growth decisions</h3>
+            <p>Connected campaign tracking, advertising platforms, CRM information and reporting to improve visibility across lead generation, acquisition cost, conversions and channel performance.</p>
+            <div class="result"><strong>45%</strong><span>improvement in cost per lead across campaign initiatives</span></div>
+            <p class="card-detail">Campaign measurement also contributed to growth in enquiry and customer-acquisition activity.</p>
+          </article>
+          <article class="work-card">
+            <div class="card-top"><span class="tag">AI infrastructure</span><span class="card-index">04</span></div>
+            <h3>Deploying an independent GPU inference service</h3>
+            <p>Selected OCI GPU infrastructure after evaluating local and hosted options. Designed an API-based inference layer that the main application can call independently of its primary application stack.</p>
+            <div class="result"><strong>API-first</strong><span>inference architecture with primary and backup provider paths</span></div>
+            <p class="card-detail">The fallback design allows the application to switch providers when the primary inference endpoint fails or exceeds its configured response window.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="career">
+      <div class="container career-layout">
+        <div class="career-aside">
+          <p class="eyebrow">Professional journey</p>
+          <h2>From business operations to enterprise systems and AI.</h2>
+          <p>Each stage added a different lens: engineering discipline, operational understanding, international client delivery, analytics and technology-enabled transformation.</p>
+          <div class="note">The common thread is end-to-end responsibility — understanding the problem, aligning the people and systems involved, and staying accountable for the result.</div>
+        </div>
+        <div class="timeline">
+          <article class="role">
+            <div class="role-date">April 2026 — Present</div>
+            <h3>Business Operations Manager</h3>
+            <div class="role-company">Sujata Fashions · Pune, India</div>
+            <ul>
+              <li>Own interconnected operations spanning production, inventory, billing, vendors, planning and business systems.</li>
+              <li>Maintain budget and P&amp;L visibility; lead vendor coordination, resource allocation and production scheduling.</li>
+              <li>Establish SOPs, process maps, performance reviews and continuous improvement practices.</li>
+              <li>Lead marketing performance measurement and commercial reporting across digital campaigns.</li>
+            </ul>
+          </article>
+          <article class="role">
+            <div class="role-date">August 2024 — March 2026</div>
+            <h3>Operations Analyst &amp; AI Systems Lead</h3>
+            <div class="role-company">Sujata Fashions · Pune, India</div>
+            <ul>
+              <li>Led billing and inventory transformation, reducing manual processing time by approximately 70%.</li>
+              <li>Designed internal document retrieval and AI-assisted business workflows.</li>
+              <li>Coordinated application architecture, cloud infrastructure, APIs, databases and production releases.</li>
+              <li>Established operational KPIs, reporting systems, staff enablement and post-deployment improvement.</li>
+            </ul>
+          </article>
+          <article class="role">
+            <div class="role-date">February 2022 — August 2024</div>
+            <h3>International Customer Success &amp; Analytics Analyst</h3>
+            <div class="role-company">NielsenIQ (NIQ) · Pune, India</div>
+            <ul>
+              <li>Supported approximately 10–15 international FMCG client accounts across North America, Europe and APAC.</li>
+              <li>Maintained 100% on-time delivery and 95% CSAT against contractual SLAs.</li>
+              <li>Managed client configuration, platform data loads, coverage comparisons, output validation and platform monitoring.</li>
+              <li>Led client-side transition activities for NIQ Discover, completed with zero migration-related escalations to senior management.</li>
+              <li>Delivered market, category, brand, competitor and promotional analytics with executive Power BI reporting.</li>
+            </ul>
+          </article>
+          <article class="role">
+            <div class="role-date">September 2018 — June 2021</div>
+            <h3>Executive Assistant — Business Operations &amp; Management Support</h3>
+            <div class="role-company">Sujata Fashions · Pune, India</div>
+            <ul>
+              <li>Supported management reporting, interdepartmental coordination and recurring operational workflows.</li>
+              <li>Built internal information and filing systems and prepared management presentations.</li>
+              <li>Developed practical understanding of business processes and stakeholder dependencies.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section builds-section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Built, deployed and published</p>
+          <h2>Work that can be explored.</h2>
+          <p>Selected product and engineering work demonstrating practical systems thinking, implementation ownership and a focus on prevention, usability and maintainability.</p>
+        </div>
+        <div class="build-grid">
+          <article class="build-card">
+            <div class="build-type">Operations platform</div>
+            <h3>KaizenPM</h3>
+            <p>A multi-tenant project and continuous-improvement platform with Kaizen logging, Kanban workflows, time tracking and role-based access control. Built around FastAPI, PostgreSQL and Redis.</p>
+            <a href="https://github.com/ccoolavi/project-manager" target="_blank" rel="noopener noreferrer">Explore repository ↗</a>
+          </article>
+          <article class="build-card">
+            <div class="build-type">Developer tooling</div>
+            <h3>Error-prevention plugins</h3>
+            <p>Three published JetBrains plugins addressing credential exposure, Apache Airflow migration issues and LangChain API compatibility changes.</p>
+            <a href="https://github.com/ccoolavi/secret-guard" target="_blank" rel="noopener noreferrer">Explore repository ↗</a>
+          </article>
+          <article class="build-card">
+            <div class="build-type">Business application</div>
+            <h3>Billing &amp; measurement PWA</h3>
+            <p>A business-facing application supporting structured measurement records, order-stage tracking, UPI QR billing and export workflows.</p>
+            <a href="https://sujatafashion.in" target="_blank" rel="noopener noreferrer">Visit website ↗</a>
+          </article>
+          <article class="build-card">
+            <div class="build-type">AI systems</div>
+            <h3>GPU inference architecture</h3>
+            <p>An OCI GPU-backed inference service with an application-facing API and a primary/backup provider design for improved service continuity.</p>
+            <a href="mailto:avishkar.solat@myself.com?subject=AI%20inference%20architecture">Discuss the architecture ↗</a>
+          </article>
+          <article class="build-card">
+            <div class="build-type">Knowledge systems</div>
+            <h3>Document-grounded AI assistant</h3>
+            <p>Internal knowledge retrieval over operational documents and technical references, designed to make institutional information easier to access.</p>
+            <a href="mailto:avishkar.solat@myself.com?subject=AI%20knowledge%20systems">Discuss the project ↗</a>
+          </article>
+          <article class="build-card">
+            <div class="build-type">Engineering · Patent pending</div>
+            <h3>Robotic wheel replacement concept</h3>
+            <p>Engineering capstone involving requirements, mechanism design, calculations, CAD, simulation, validation and practical testing.</p>
+            <a href="mailto:avishkar.solat@myself.com?subject=Engineering%20portfolio">Ask about the project ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Operating principles</p>
+          <h2>How I approach leadership and delivery.</h2>
+        </div>
+        <div class="approach-grid">
+          <article class="approach"><h3>Baseline before change</h3><p>Measure the current state before redesigning it. Improvement should be defensible, not simply described.</p></article>
+          <article class="approach"><h3>Own the whole system</h3><p>Look beyond individual tasks to process dependencies, people, data, controls and the operating environment.</p></article>
+          <article class="approach"><h3>Verify before trust</h3><p>AI-generated or automated outputs need proportionate validation, especially when they influence business workflows.</p></article>
+          <article class="approach"><h3>Make adoption real</h3><p>Documentation, training, feedback and operational support determine whether a solution becomes part of the business.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 12px;">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Areas of contribution</p>
+          <h2>Where strategy meets execution.</h2>
+        </div>
+        <div class="capability-grid">
+          <article class="capability"><h3>Business &amp; General Management</h3><p>Operating strategy, performance management, budget visibility, resource planning, vendor relationships and cross-functional execution.</p></article>
+          <article class="capability"><h3>Transformation &amp; Operations</h3><p>Process redesign, operational excellence, governance, automation, continuous improvement and change adoption.</p></article>
+          <article class="capability"><h3>AI &amp; Digital Systems</h3><p>Applied AI, inference architecture, RAG, agentic workflows, API integration, cloud deployment and practical AI adoption.</p></article>
+          <article class="capability"><h3>Enterprise Delivery</h3><p>Global client relationships, service-level performance, platform transitions, delivery governance and stakeholder alignment.</p></article>
+          <article class="capability"><h3>Analytics &amp; Commercial Insight</h3><p>Business intelligence, KPI frameworks, marketing performance, data quality, market analysis and executive reporting.</p></article>
+          <article class="capability"><h3>Engineering &amp; Systems Thinking</h3><p>First-principles problem solving, mechanical design, modelling, simulation, technical validation and multidisciplinary coordination.</p></article>
+        </div>
+        <div class="tool-list" aria-label="Selected tools and platforms">
+          <span>Power BI</span><span>SQL</span><span>Python</span><span>pandas</span><span>FastAPI</span><span>PostgreSQL</span><span>Docker</span><span>OCI</span><span>AWS</span><span>Linux</span><span>LangGraph</span><span>ChromaDB</span><span>Ollama</span><span>LM Studio</span><span>Power Automate</span><span>Microsoft Dynamics</span><span>MATLAB / Simulink</span><span>CAD</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section background-section" id="background">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Education &amp; foundations</p>
+          <h2>An engineering foundation. A business and technology career.</h2>
+        </div>
+        <div class="background-grid">
+          <article class="background-card">
+            <h3>Education</h3>
+            <p><strong>B.E. Mechanical Engineering</strong></p>
+            <p>D. Y. Patil College of Engineering &amp; Technology, Pimpri, Pune · 2018–2022</p>
+            <p>CGPA 9.47 / 10 · 88.64%</p>
+          </article>
+          <article class="background-card">
+            <h3>Certification &amp; recognition</h3>
+            <p><strong>Google Data Analytics Professional Certificate</strong></p>
+            <p><strong>BAJA SAE India m-BAJA 2021</strong> — Team Durgayans, Acceleration Award.</p>
+            <p><strong>Engineering capstone</strong> — automated robotic wheel replacement concept, patent pending.</p>
+          </article>
+        </div>
+        <div class="internships">
+          <h3>Earlier engineering internships</h3>
+          <div class="internship-list">
+            <article class="internship">
+              <div class="date">September 2021 — October 2021</div>
+              <h4>Project Intern · Research &amp; Development</h4>
+              <p><strong>Develop Train Maintain LLP</strong> · Pune. R&amp;D on energy-efficient mechanical solutions, CAD modelling, simulations, stress analysis, prototyping and technical documentation.</p>
+            </article>
+            <article class="internship">
+              <div class="date">June 2021 — July 2021</div>
+              <h4>Model-Based Design Intern · Mechanical Systems</h4>
+              <p><strong>Decibels Lab</strong> · Pune. MATLAB/Simulink modelling, system dynamics, control strategy, performance optimisation and simulation-led validation.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="container contact-wrap">
+        <div>
+          <p class="eyebrow">Let's connect</p>
+          <h2>For organisations building what comes next.</h2>
+          <p>Interested in leadership opportunities where business strategy, operational performance and technology need to work as one. Open to global roles and conversations across transformation, operations, enterprise delivery and AI-enabled business systems.</p>
+        </div>
+        <div class="contact-links">
+          <a class="contact-link" href="mailto:avishkar.solat@myself.com"><span>Email</span><span>↗</span></a>
+          <a class="contact-link" href="https://www.linkedin.com/in/ccoolavi" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span><span>↗</span></a>
+          <a class="contact-link" href="https://github.com/ccoolavi" target="_blank" rel="noopener noreferrer"><span>GitHub</span><span>↗</span></a>
+          <a class="contact-link" href="https://ccoolavi.github.io/Avishkar/" target="_blank" rel="noopener noreferrer"><span>Portfolio URL</span><span>↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year">2026</span> Avishkar Solat · Pune, India</span>
+      <span>Business &amp; Technology Leadership · <a href="mailto:avishkar.solat@myself.com">Get in touch</a></span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const toggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('#nav-links');
+      const year = document.querySelector('#year');
+      if (year) year.textContent = new Date().getFullYear();
+      if (!toggle || !nav) return;
+      toggle.addEventListener('click', function () {
+        const isOpen = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        toggle.textContent = isOpen ? 'Close' : 'Menu';
+      });
+      nav.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          nav.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.textContent = 'Menu';
+        });
+      });
+    }());
+  </script>
+</body>
+</html>
